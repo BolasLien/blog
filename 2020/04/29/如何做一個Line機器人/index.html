@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>如何做一個Line機器人 - BolasLien</title><meta description="從聖騎士PM轉職，現在是前端工程師"><meta property="og:type" content="blog"><meta property="og:title" content="Bolas;"><meta property="og:url" content="https://bolaslien.github.io/blog/"><meta property="og:site_name" content="BolasLien"><meta property="og:description" content="從聖騎士PM轉職，現在是前端工程師"><meta property="og:locale" content="zh_TW"><meta property="og:image" content="https://i.imgur.com/vJhUtRl.png"><meta property="og:image" content="https://i.imgur.com/x90QjZz.png"><meta property="og:image" content="https://i.imgur.com/553WDYm.png"><meta property="og:image" content="https://i.imgur.com/26XH5Ua.png"><meta property="og:image" content="https://i.imgur.com/WkIl1oC.png"><meta property="og:image" content="https://i.imgur.com/x2o2OvF.png"><meta property="og:image" content="https://i.imgur.com/P1IdLF1.png"><meta property="og:image" content="https://i.imgur.com/TOFIhLW.png"><meta property="og:image" content="https://i.imgur.com/nMg7NdO.png"><meta property="og:image" content="https://i.imgur.com/dPdyfPt.png"><meta property="og:image" content="https://i.imgur.com/aruTbWh.png"><meta property="og:image" content="https://i.imgur.com/KnDhbZE.png"><meta property="og:image" content="https://i.imgur.com/NjEis81.png"><meta property="og:image" content="https://i.imgur.com/iVG9IKj.png"><meta property="og:image" content="https://i.imgur.com/Cxvkyfg.png"><meta property="article:published_time" content="2020-04-29T01:20:43.000Z"><meta property="article:modified_time" content="2020-08-27T10:26:27.769Z"><meta property="article:author" content="Bolas"><meta property="article:tag" content="node.js"><meta property="article:tag" content="line-bot"><meta property="twitter:card" content="summary"><meta property="twitter:image" content="https://i.imgur.com/vJhUtRl.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://bolaslien.github.io/blog/2020/04/29/%E5%A6%82%E4%BD%95%E5%81%9A%E4%B8%80%E5%80%8BLine%E6%A9%9F%E5%99%A8%E4%BA%BA/"},"headline":"BolasLien","image":["https://i.imgur.com/vJhUtRl.png","https://i.imgur.com/x90QjZz.png","https://i.imgur.com/553WDYm.png","https://i.imgur.com/26XH5Ua.png","https://i.imgur.com/WkIl1oC.png","https://i.imgur.com/x2o2OvF.png","https://i.imgur.com/P1IdLF1.png","https://i.imgur.com/TOFIhLW.png","https://i.imgur.com/nMg7NdO.png","https://i.imgur.com/dPdyfPt.png","https://i.imgur.com/aruTbWh.png","https://i.imgur.com/KnDhbZE.png","https://i.imgur.com/NjEis81.png","https://i.imgur.com/iVG9IKj.png","https://i.imgur.com/Cxvkyfg.png"],"datePublished":"2020-04-29T01:20:43.000Z","dateModified":"2020-08-27T10:26:27.769Z","author":{"@type":"Person","name":"Bolas"},"description":"前置作業 Heroku 註冊帳號 Node.js 到官網下載14.0.0，再直接安裝 Line Developers 用Line帳號登入Line Developers 建立一個provider 建立一個MessageAPI 用Line加好友   ngrok 用github登入 下載ngrok ngrok是用來轉發http內容跟line機器人溝通，我們自己在開發的時候用來測試的"}</script><link rel="canonical" href="https://bolaslien.github.io/blog/2020/04/29/%E5%A6%82%E4%BD%95%E5%81%9A%E4%B8%80%E5%80%8BLine%E6%A9%9F%E5%99%A8%E4%BA%BA/"><link rel="icon" href="/blog/./img/favicon.ico"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/tomorrow-night.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/blog/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css"><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script><meta name="generator" content="Hexo 5.1.1"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/blog/"><img src="/blog/./img/logo.png" alt="BolasLien" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/blog/">Home</a><a class="navbar-item" href="/blog/archives">Archives</a><a class="navbar-item" href="/blog/tags">Tags</a><a class="navbar-item" href="/blog/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a><a class="navbar-item search" title="搜尋" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2020-04-29T01:20:43.000Z" title="2020-04-29T01:20:43.000Z">2020-04-29</time>發表</span><span class="level-item"><time dateTime="2020-08-27T10:26:27.769Z" title="2020-08-27T10:26:27.769Z">2020-08-27</time>更新</span><span class="level-item">6 分鐘讀完 (大約970個字)</span></div></div><h1 class="title is-3 is-size-4-mobile">如何做一個Line機器人</h1><div class="content"><h2 id="前置作業"><a href="#前置作業" class="headerlink" title="前置作業"></a>前置作業</h2><ol>
+<li><a target="_blank" rel="noopener" href="https://www.heroku.com/">Heroku</a> 註冊帳號</li>
+<li><a target="_blank" rel="noopener" href="https://nodejs.org/">Node.js</a> 到官網下載14.0.0，再直接安裝</li>
+<li><a target="_blank" rel="noopener" href="https://developers.line.biz/zh-hant/">Line Developers</a><ul>
+<li>用Line帳號登入Line Developers</li>
+<li>建立一個provider</li>
+<li>建立一個MessageAPI</li>
+<li>用Line加好友</li>
+</ul>
+</li>
+<li><a target="_blank" rel="noopener" href="https://ngrok.com/">ngrok</a><ul>
+<li>用github登入</li>
+<li>下載ngrok<blockquote>
+<p>ngrok是用來轉發http內容跟line機器人溝通，我們自己在開發的時候用來測試的</p>
+</blockquote>
+<a id="more"></a>
+
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="專案設定"><a href="#專案設定" class="headerlink" title="專案設定"></a>專案設定</h2><h3 id="Node-js安裝套件"><a href="#Node-js安裝套件" class="headerlink" title="Node.js安裝套件"></a>Node.js安裝套件</h3><ol>
+<li>打開VSCode，為這個機器人建立一個專案目錄</li>
+<li>打開VSCode終端機(推薦使用Cmd)：</li>
+</ol>
+<ul>
+<li><p>移動到你的專案目錄，如圖<br><img src="https://i.imgur.com/vJhUtRl.png"></p>
+</li>
+<li><p>npm init 初始化你的專案目錄<br><code>會產生package.json</code></p>
+<blockquote>
+<p>如果你的package.json已有記錄你裝的套件，你可以用<code>npm install</code>指令來安裝所有套件</p>
+</blockquote>
+</li>
+<li><p>編輯package.json，加入兩個指令</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">...</span><br><span class="line">  &quot;scripts&quot;: &#123;</span><br><span class="line">    &quot;start&quot;: &quot;node index.js&quot;,</span><br><span class="line">    &quot;dev&quot;: &quot;nodemon index.js&quot;</span><br><span class="line">  &#125;,</span><br><span class="line">...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>安裝nodemon套件 <code>npm install -g nodemon</code></p>
+<blockquote>
+<p>-g 全域安裝<br>modemon 存檔的時候就會幫忙重新啟動node.js</p>
+</blockquote>
+</li>
+<li><p>安裝環境設定檔套件<code>npm install dotenv</code></p>
+</li>
+<li><p>安裝line機器人套件<code>npm install linebot</code></p>
+</li>
+<li><p>安裝API套件<code>npm install request</code>、<code>npm install request-promise</code></p>
+</li>
+<li><p>安裝node.js的程式碼風格格式化的套件<code>npm install -g eslint</code></p>
+</li>
+<li><p>F1=&gt;Create eslint…<br><code>終端機要在你的專案目錄</code></p>
+</li>
+<li><p>終端機會自動出現eslint初始化，照圖片回答即可<br><img src="https://i.imgur.com/x90QjZz.png"></p>
+</li>
+<li><p>有上傳Git的話，記得把<code>node_modules/</code>加入.gitignore清單</p>
+</li>
+</ul>
+<h3 id="ENV環境設定檔"><a href="#ENV環境設定檔" class="headerlink" title="ENV環境設定檔"></a>ENV環境設定檔</h3><ul>
+<li>VSCode安裝DotEnv套件</li>
+<li>專案目錄下建立.env檔案，內容寫入如下(變數裡面的自己去LineDevelop找)<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">CHANNEL_ID&#x3D;&quot;&quot;</span><br><span class="line">CHANNEL_SECRET&#x3D;&quot;&quot;</span><br><span class="line">CHANNEL_ACCESS_TOKEN&#x3D;&quot;&quot;</span><br><span class="line">PORT&#x3D;3000</span><br></pre></td></tr></table></figure></li>
+<li>有上傳Git的話，記得把.env加入.gitignore清單</li>
+</ul>
+<h3 id="ESlint設定"><a href="#ESlint設定" class="headerlink" title="ESlint設定"></a>ESlint設定</h3><ul>
+<li><p>VSCode 鍵盤F1=&gt;搜尋setting=&gt;喜好設定:開啟設定(JSON)<br><img src="https://i.imgur.com/553WDYm.png"></p>
+</li>
+<li><p>在setting.json內加入這一行</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">...</span><br><span class="line">&quot;editor.codeActionsOnSave&quot;: &#123;&quot;source.fixAll.eslint&quot;: true&#125;</span><br><span class="line">...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="機器人設定"><a href="#機器人設定" class="headerlink" title="機器人設定"></a>機器人設定</h3></li>
+</ul>
+<ol>
+<li><p>在專案目錄下建立index.js<br>輸入這些東西<br><img src="https://i.imgur.com/26XH5Ua.png"></p>
+</li>
+<li><p>LineDevelopers裡面去把自動回應關閉<br><img src="https://i.imgur.com/WkIl1oC.png"><br><img src="https://i.imgur.com/x2o2OvF.png"></p>
+</li>
+<li><p>設定ngrok</p>
+</li>
+</ol>
+<ul>
+<li><p>ngrok.exe放到專案目錄</p>
+</li>
+<li><p>在終端機裡面輸入Ngrok提供的指令<code>ngrok authtoken ...</code>(記得./要拿掉)<br><img src="https://i.imgur.com/P1IdLF1.png"></p>
+</li>
+<li><p>在終端機裡面輸入<code>ngrok http 3000</code>啟用ngrok http連線</p>
+</li>
+<li><p>開另一個新的終端機輸入<code>npm run dev</code>啟用node.js</p>
+<blockquote>
+<p>dev是<code>npm nodemon index.js</code>指令</p>
+</blockquote>
+</li>
+<li><p>把ngrok給的https路徑貼到MessageAPI的URL，如果成功的話打開Use Webhook(可能要等一下才能驗證)<br><img src="https://i.imgur.com/TOFIhLW.png"><br><img src="https://i.imgur.com/nMg7NdO.png"></p>
+</li>
+</ul>
+<h3 id="撈API"><a href="#撈API" class="headerlink" title="撈API"></a>撈API</h3><p>寫成下面這樣，當使用者跟機器人說話，機器人會回應kktix第一個活動的標題。<br><strong>需要import request-promise 套件</strong><br><img src="https://i.imgur.com/dPdyfPt.png"></p>
+<h3 id="相關連結"><a href="#相關連結" class="headerlink" title="相關連結"></a>相關連結</h3><p><a target="_blank" rel="noopener" href="https://www.npmjs.com/package/linebot">npm linebot</a><br><a target="_blank" rel="noopener" href="https://www.npmjs.com/package/request-promise">npm request-promise</a></p>
+<h3 id="heroku設定"><a href="#heroku設定" class="headerlink" title="heroku設定"></a>heroku設定</h3><h4 id="這是一個雲端伺服器，用來存放機器人，Heroku自己有https，所以不用擔心ngrok換網址了"><a href="#這是一個雲端伺服器，用來存放機器人，Heroku自己有https，所以不用擔心ngrok換網址了" class="headerlink" title="這是一個雲端伺服器，用來存放機器人，Heroku自己有https，所以不用擔心ngrok換網址了"></a>這是一個雲端伺服器，用來存放機器人，Heroku自己有https，所以不用擔心ngrok換網址了</h4><ul>
+<li>登入後，建立一個App<br><img src="https://i.imgur.com/aruTbWh.png"></li>
+<li>在這個app的後台的Deploy頁面，選用github連動，選擇到自己的儲存庫<br><img src="https://i.imgur.com/KnDhbZE.png"></li>
+<li>到setting頁面設定Config Vars<br><img src="https://i.imgur.com/NjEis81.png"></li>
+<li>部屬你的機器人，點Deploy branch，成功之後點view按鈕，把給的網址複製起來<br><img src="https://i.imgur.com/iVG9IKj.png"></li>
+<li>貼到LineDevelopers的MessageAPI的Webhook URL<br><img src="https://i.imgur.com/Cxvkyfg.png"></li>
+</ul>
+<h2 id="相關套件"><a href="#相關套件" class="headerlink" title="相關套件"></a>相關套件</h2><h3 id="解析HTML-cheerio"><a href="#解析HTML-cheerio" class="headerlink" title="解析HTML - cheerio"></a>解析HTML - cheerio</h3><p>如果你想撈的資料是沒有API的話，可以用cheerio去解析HTML<br>搭配request-promise可以拿到的HTML資料，配合利用JQ語法解析<br><a target="_blank" rel="noopener" href="https://github.com/cheeriojs/cheerio">cheerio</a></p>
+<h3 id="解析XML-XML2js"><a href="#解析XML-XML2js" class="headerlink" title="解析XML - XML2js"></a>解析XML - XML2js</h3><h3 id="排程-node-schedule"><a href="#排程-node-schedule" class="headerlink" title="排程 node-schedule"></a>排程 node-schedule</h3><p>可以指定機器人每天幾點去做事情(撈資料之類的)</p>
+</div><div class="article-tags size-small mb-4"><span class="mr-2">#</span><a class="link-muted mr-2" rel="tag" href="/blog/tags/node-js/">node.js</a><a class="link-muted mr-2" rel="tag" href="/blog/tags/line-bot/">line-bot</a></div><!--!--></article></div><!--!--><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="/blog/2020/08/18/%E5%AF%A6%E4%BD%9CJWT%E6%A9%9F%E5%88%B6%E7%9A%84%E7%99%BB%E5%85%A5%E9%A9%97%E8%AD%89/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">實作JWT機制的登入驗證</span></a></div></nav><!--!--></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1"><div class="card widget"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar" src="/blog/./img/avatar.jpg" alt="Bolas"></figure><p class="title is-size-4 is-block line-height-inherit">Bolas</p><p class="is-size-6 is-block">FRONT-END DEVELOPER</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>New Taipei City</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">文章</p><a href="/blog/archives"><p class="title">3</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">分類</p><a href="/blog/categories"><p class="title">0</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">標籤</p><a href="/blog/tags"><p class="title">6</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/BolasLien" target="_blank" rel="noopener">追蹤</a></div><div class="level is-mobile"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Github" href="https://github.com/BolasLien"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Facebook" href="https://www.facebook.com/LChen08"><i class="fab fa-facebook"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Linkedin" href="https://www.linkedin.com/in/%E9%80%A3-%E6%85%88%E6%81%A9-5976b887/"><i class="fab fa-linkedin"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Mail" href="mailto:BolasLien@gmail.com"><i class="fas fa-envelope-square"></i></a></div></div></div><!--!--><!--!--><div class="card widget"><div class="card-content"><h3 class="menu-label">最新文章</h3><article class="media"><div class="media-content size-small"><p><time dateTime="2020-08-19T05:42:11.000Z">2020-08-19</time></p><p class="title is-6"><a class="link-muted" href="/blog/2020/08/19/%E7%82%BA%E4%BB%80%E9%BA%BC%E6%88%91%E4%B8%8D%E7%B9%BC%E7%BA%8C%E5%81%9A%E8%81%96%E9%A8%8E%E5%A3%ABPM/">為什麼我不繼續做聖騎士PM</a></p><p class="is-uppercase"></p></div></article><article class="media"><div class="media-content size-small"><p><time dateTime="2020-08-18T04:09:18.000Z">2020-08-18</time></p><p class="title is-6"><a class="link-muted" href="/blog/2020/08/18/%E5%AF%A6%E4%BD%9CJWT%E6%A9%9F%E5%88%B6%E7%9A%84%E7%99%BB%E5%85%A5%E9%A9%97%E8%AD%89/">實作JWT機制的登入驗證</a></p><p class="is-uppercase"></p></div></article><article class="media"><div class="media-content size-small"><p><time dateTime="2020-04-29T01:20:43.000Z">2020-04-29</time></p><p class="title is-6"><a class="link-muted" href="/blog/2020/04/29/%E5%A6%82%E4%BD%95%E5%81%9A%E4%B8%80%E5%80%8BLine%E6%A9%9F%E5%99%A8%E4%BA%BA/">如何做一個Line機器人</a></p><p class="is-uppercase"></p></div></article></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">彙整</h3><ul class="menu-list"><li><a class="level is-mobile is-marginless" href="/blog/archives/2020/08/"><span class="level-start"><span class="level-item">八月 2020</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile is-marginless" href="/blog/archives/2020/04/"><span class="level-start"><span class="level-item">四月 2020</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></div></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">標籤</h3><div class="field is-grouped is-grouped-multiline"><div class="control"><a class="tags has-addons" href="/blog/tags/Express/"><span class="tag">Express</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/blog/tags/jwt/"><span class="tag">jwt</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/blog/tags/line-bot/"><span class="tag">line-bot</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/blog/tags/node-js/"><span class="tag">node.js</span><span class="tag is-grey-lightest">2</span></a></div><div class="control"><a class="tags has-addons" href="/blog/tags/token/"><span class="tag">token</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/blog/tags/%E8%81%B7%E6%B6%AF/"><span class="tag">職涯</span><span class="tag is-grey-lightest">1</span></a></div></div></div></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/blog/"><img src="/blog/./img/logo.png" alt="BolasLien" height="28"></a><p class="size-small"><span>&copy; 2020 Bolas</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p></div><div class="level-end"></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script>moment.locale("zh-TW");</script><script>var IcarusThemeSettings = {
+            site: {
+                url: 'https://bolaslien.github.io/blog',
+                external_link: {"enable":true,"exclude":[]}
+            },
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script src="/blog/js/animation.js"></script><a id="back-to-top" title="回到頁首" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/blog/js/back_to_top.js" defer></script><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><!--!--><!--!--><script src="/blog/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="請輸入關鍵字..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/blog/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/blog/content.json"}, {"hint":"請輸入關鍵字...","untitled":"(無標題)","posts":"文章","pages":"頁面","categories":"分類","tags":"標籤"});
+        });</script></body></html>
