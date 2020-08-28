@@ -3,35 +3,35 @@ version: 4.0.0
 # Icarus theme variant, can be "default" or "cyberpunk"
 variant: default
 # Path or URL to the website's logo
-logo: /img/logo.png
+logo: ./img/logo.png
 # Page metadata configurations
 head:
     # URL or path to the website's icon
-    favicon: /img/favicon.ico
+    favicon: ./img/favicon.ico
     # Open Graph metadata
     # https://hexo.io/docs/helpers.html#open-graph
     open_graph:
         # Page title (og:title) (optional)
         # You should leave this blank for most of the time
-        title: 
+        title: Bolas;
         # Page type (og:type) (optional)
         # You should leave this blank for most of the time
         type: blog
         # Page URL (og:url) (optional)
         # You should leave this blank for most of the time
-        url: 
+        url: https://bolaslien.github.io/blog/
         # Page cover (og:image) (optional)
         # You should leave this blank for most of the time
         image: 
         # Site name (og:site_name) (optional)
         # You should leave this blank for most of the time
-        site_name: 
+        site_name: BolasLien
         # Page author (article:author) (optional)
         # You should leave this blank for most of the time
-        author: 
+        author: Bolas
         # Page description (og:description) (optional)
         # You should leave this blank for most of the time
-        description: 
+        description: 從聖騎士PM轉職，現在是前端工程師
         # Twitter card type (twitter:card)
         twitter_card: 
         # Twitter ID (twitter:creator)
@@ -80,9 +80,12 @@ navbar:
         About: /about
     # Links to be shown on the right of the navigation bar
     links:
-        Download on GitHub:
+        My GitHub:
             icon: fab fa-github
-            url: 'https://github.com/ppoffice/hexo-theme-icarus'
+            url: 'https://github.com/BolasLien'
+        My Portfolio:
+            icon: fas fa-book
+            url: 'https://bolaslien.github.io/'
 # Page footer configurations
 # footer:
 #     # Links to be shown on the right of the footer section
@@ -190,11 +193,11 @@ widgets:
         # Author name
         author: Bolas
         # Author title
-        author_title: FRONT-END DEVELOPER
+        author_title: Front-End Web Developer
         # Author's current location
-        location: New Taipei City
+        location: Taipei, Taiwan
         # URL or path to the avatar image
-        avatar: /img/avatar.jpg
+        avatar: ./img/avatar.jpg
         # Whether show the rounded avatar image
         avatar_rounded: false
         # Email address for the Gravatar
@@ -229,7 +232,8 @@ widgets:
         # Where should the widget be placed, left sidebar or right sidebar
         position: left
         type: toc
-    # Recommendation links widget configurations
+    # 用不到所以關掉了
+        # Recommendation links widget configurations
     # -
     #     # Where should the widget be placed, left sidebar or right sidebar
     #     position: left
@@ -238,11 +242,13 @@ widgets:
     #     links:
     #         Hexo: 'https://hexo.io'
     #         Bulma: 'https://bulma.io'
+    
+    # 用不到所以關掉了
     # Categories widget configurations
-    -
-        # Where should the widget be placed, left sidebar or right sidebar
-        position: left
-        type: categories
+    # -
+    #     # Where should the widget be placed, left sidebar or right sidebar
+    #     position: left
+    #     type: categories
     # Recent posts widget configurations
     -
         # Where should the widget be placed, left sidebar or right sidebar
@@ -304,7 +310,7 @@ plugins:
     # https://analytics.google.com
     google_analytics:
         # Google Analytics tracking ID
-        tracking_id: 
+        tracking_id: UA-168227875-3
     # Hotjar user feedback plugin
     # https://www.hotjar.com/
     hotjar:

@@ -4,6 +4,7 @@ date: 2020-04-29 09:20:43
 tags: 
 - node.js
 - line-bot
+categories: 筆記
 ---
 ## 前置作業
 1. [Heroku](https://www.heroku.com/) 註冊帳號
