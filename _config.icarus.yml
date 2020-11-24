@@ -22,7 +22,7 @@ head:
         url: https://bolaslien.github.io/blog/
         # Page cover (og:image) (optional)
         # You should leave this blank for most of the time
-        image: 
+        image: ./img/logo.png
         # Site name (og:site_name) (optional)
         # You should leave this blank for most of the time
         site_name: BolasLien
@@ -33,42 +33,42 @@ head:
         # You should leave this blank for most of the time
         description: 從聖騎士PM轉職，現在是前端工程師
         # Twitter card type (twitter:card)
-        twitter_card: 
+        twitter_card:
         # Twitter ID (twitter:creator)
-        twitter_id: 
+        twitter_id:
         # Twitter Site (twitter:site)
-        twitter_site: 
+        twitter_site:
         # Google+ profile link (deprecated)
-        google_plus: 
+        google_plus:
         # Facebook admin ID
-        fb_admins: 
+        fb_admins:
         # Facebook App ID
-        fb_app_id: 
+        fb_app_id:
     # Structured data of the page
     # https://developers.google.com/search/docs/guides/intro-structured-data
     structured_data:
         # Page title (optional)
         # You should leave this blank for most of the time
-        title: 
+        title:
         # Page description (optional)
         # You should leave this blank for most of the time
-        description: 
+        description:
         # Page URL (optional)
         # You should leave this blank for most of the time
-        url: 
+        url:
         # Page author (article:author) (optional)
         # You should leave this blank for most of the time
-        author: 
+        author:
         # Page images (optional)
         # You should leave this blank for most of the time
-        image: 
+        image:
     # Additional HTML meta tags in an array
     meta:
         # Meta tag specified in <attribute>=<value> style
         # E.g., name=theme-color;content=#123456 => <meta name="theme-color" content="#123456">
         - ''
     # URL or path to the website's RSS atom.xml
-    rss: 
+    rss:
 # Page top navigation bar configurations
 navbar:
     # Naviagtion menu items
@@ -201,7 +201,7 @@ widgets:
         # Whether show the rounded avatar image
         avatar_rounded: false
         # Email address for the Gravatar
-        gravatar: 
+        gravatar:
         # URL or path for the follow button
         follow_link: 'https://github.com/BolasLien'
         # Links to be shown on the bottom of the profile widget
@@ -242,7 +242,7 @@ widgets:
     #     links:
     #         Hexo: 'https://hexo.io'
     #         Bulma: 'https://bulma.io'
-    
+
     # 用不到所以關掉了
     # Categories widget configurations
     # -
@@ -270,7 +270,7 @@ widgets:
     #     position: left
     #     type: subscribe_email
     #     # Hint text under the email input
-    #     description: 
+    #     description:
     #     # Feedburner ID
     #     feedburner_id: ''
     # Google AdSense unit configurations
@@ -293,7 +293,7 @@ plugins:
     # https://tongji.baidu.com
     baidu_analytics:
         # Baidu Analytics tracking ID
-        tracking_id: 
+        tracking_id:
     # BuSuanZi site/page view counter
     # https://busuanzi.ibruce.info
     busuanzi: false
@@ -301,9 +301,9 @@ plugins:
     # https://www.umeng.com/web
     cnzz:
         # CNZZ tracker id
-        id: 
+        id:
         # CNZZ website id
-        web_id: 
+        web_id:
     # Enable the lightGallery and Justified Gallery plugins
     gallery: true
     # Google Analytics plugin settings
@@ -315,7 +315,7 @@ plugins:
     # https://www.hotjar.com/
     hotjar:
         # Hotjar site id
-        site_id: 
+        site_id:
     # Enable the KaTeX math typesetting supprot
     # https://katex.org/
     katex: false
