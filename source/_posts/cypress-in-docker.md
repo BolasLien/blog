@@ -9,7 +9,7 @@ categories: 前端
 ---
 
 執行這些步驟之前，你必須要先有cypress的測試目錄喔。
-或是你可以[從這裡抓官方的Demo](https://github.com/bahmutov/demo-docker-cypress-included)
+或是可以[從這裡抓我做的專案](https://github.com/BolasLien/docker-cypress-testing)
 
 <!-- more -->
 ## 安裝 (for Windows)
@@ -37,3 +37,8 @@ $ docker run -it -v ${PWD}:/e2e -w /e2e cypress/included:6.1.0
 $ docker run -it -v %cd%:/e2e -w /e2e cypress/included:6.1.0
 {% endcodeblock %}
 ### 最後，在你的cypress資料夾裡面會有screenshot跟video的目錄，可以看到紀錄!
+
+參考：
+[Install Docker Desktop on Windows](https://docs.docker.com/docker-for-windows/install/)
+[Run Cypress with a single Docker command](https://www.cypress.io/blog/2019/05/02/run-cypress-with-a-single-docker-command/?fireglass_rsn=true#fireglass_params&tabid=a44032357a1fe072&application_server_address=witie65.echome.tw&popup=true&is_right_side_popup=false&start_with_session_counter=1)
+[Cypress Docker Images](https://github.com/cypress-io/cypress-docker-images)
