@@ -1,5 +1,5 @@
 ---
-title: Cypress入門筆記
+title: Cypress入門筆記(上)
 date: 2020-12-18 14:42:13
 tags:
 - e2e testing
@@ -22,18 +22,22 @@ Cypress則是會自動重新找，直到找到、或是找太久timeout了
 # 命令鏈(Chains of Commands)
 ## 跟元素的互動
 你可以抓DOM之後，對其做事
-{% codeblock lang:js %}
+```js
 // 找到input標籤，然後在裡面輸入"this is a book"
-cy.get('input').type('this is a book')
-{% endcodeblock %}
+cy
+  .get('input')
+  .type('this is a book')
+```
 
 ## Asserting About Elements
 你可以抓DOM之後斷言(Assert)
-{% codeblock lang:js %}
+```js
 // 找到input標籤，斷言沒有'小明'這個值
 // 當input裡面沒有小明，結果為pass
-cy.get('input').should('not.have.value', '小明')
-{% endcodeblock %}
+cy
+  .get('input')
+  .should('not.have.value', '小明')
+```
 
 ## Subject Management
 * 每一條命令都是`cy.[command]`來起頭
@@ -59,6 +63,4 @@ cy.get('input').should('not.have.value', '小明')
 ## 你不能用`.catch`來抓失敗的命令
 * 你不能拋出失敗然後使命令繼續執行
 * 只能是通過一條命令，或是一條失敗的命令，就不執行後面的命令了。
-
-
 
