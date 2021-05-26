@@ -389,7 +389,7 @@ th:not([align]) {
 }
 html {
   background-color: #f7f7f7;
-  font-size: 14px;
+  font-size: 16px;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   min-width: 300px;
@@ -412,7 +412,7 @@ button,
 input,
 select,
 textarea {
-  font-family: Ubuntu, Roboto, 'Open Sans', 'Microsoft YaHei', sans-serif;
+  font-family: '微軟正黑體', 'Microsoft jhenghei', sans-serif;
 }
 code,
 pre {
@@ -1057,13 +1057,13 @@ a.has-text-grey-lightest:focus {
   font-weight: 700 !important;
 }
 .is-family-primary {
-  font-family: Ubuntu, Roboto, 'Open Sans', 'Microsoft YaHei', sans-serif !important;
+  font-family: '微軟正黑體', 'Microsoft jhenghei', sans-serif !important;
 }
 .is-family-secondary {
-  font-family: Ubuntu, Roboto, 'Open Sans', 'Microsoft YaHei', sans-serif !important;
+  font-family: '微軟正黑體', 'Microsoft jhenghei', sans-serif !important;
 }
 .is-family-sans-serif {
-  font-family: Ubuntu, Roboto, 'Open Sans', 'Microsoft YaHei', sans-serif !important;
+  font-family: '微軟正黑體', 'Microsoft jhenghei', sans-serif !important;
 }
 .is-family-monospace {
   font-family: monospace !important;
@@ -5252,7 +5252,7 @@ fieldset[disabled] .button {
 .content h5,
 .content h6 {
   color: #363636;
-  font-weight: 400;
+  font-weight: 600;
   line-height: 1.125;
 }
 .content h1 {
@@ -6219,7 +6219,7 @@ a.tag:hover {
 .title {
   color: #363636;
   font-size: 2rem;
-  font-weight: 400;
+  font-weight: 700;
   line-height: 1.125;
 }
 .title strong {
@@ -10782,7 +10782,7 @@ article.article .article-meta {
 }
 article.article .content {
   word-wrap: break-word;
-  font-size: 1.1rem;
+  font-size: 1rem;
 }
 article.article .content h1 {
   font-size: 1.75em;
