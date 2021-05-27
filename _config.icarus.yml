@@ -22,7 +22,7 @@ head:
         url: https://bolaslien.github.io/blog/
         # Page cover (og:image) (optional)
         # You should leave this blank for most of the time
-        image: ./img/logo.png
+        image: /img/og_img.png
         # Site name (og:site_name) (optional)
         # You should leave this blank for most of the time
         site_name: BolasLien
@@ -31,7 +31,7 @@ head:
         author: Bolas
         # Page description (og:description) (optional)
         # You should leave this blank for most of the time
-        description: 從聖騎士PM轉職，現在是前端工程師
+        description: 一名前端工程師，喜歡思考流程優化，喜歡解決問題。
         # Twitter card type (twitter:card)
         twitter_card:
         # Twitter ID (twitter:creator)
