@@ -31,7 +31,7 @@ head:
         author: Bolas
         # Page description (og:description) (optional)
         # You should leave this blank for most of the time
-        description: 一名前端工程師，喜歡思考流程優化，喜歡解決問題。
+        description: 我是小艾，喜歡思考流程優化，喜歡解決問題。
         # Twitter card type (twitter:card)
         twitter_card:
         # Twitter ID (twitter:creator)
