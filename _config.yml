@@ -65,3 +65,5 @@ deploy:
   type: git
   repo: 'https://github.com/BolasLien/blog.git'
   branch: gh-pages
+sitemap:
+  path: sitemap.xml
