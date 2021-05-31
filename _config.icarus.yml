@@ -3,7 +3,7 @@ version: 4.0.0
 # Icarus theme variant, can be "default" or "cyberpunk"
 variant: default
 # Path or URL to the website's logo
-logo: ./img/logo.png
+logo: ./img/logo.svg
 # Page metadata configurations
 head:
     # URL or path to the website's icon
@@ -22,13 +22,13 @@ head:
         url:
         # Page cover (og:image) (optional)
         # You should leave this blank for most of the time
-        image: ./img/og_img.png
+        image:
         # Site name (og:site_name) (optional)
         # You should leave this blank for most of the time
-        site_name: No coding no life
+        site_name:
         # Page author (article:author) (optional)
         # You should leave this blank for most of the time
-        author: Bolas
+        author:
         # Page description (og:description) (optional)
         # You should leave this blank for most of the time
         description:
@@ -193,7 +193,7 @@ widgets:
         # Author name
         author: Bolas
         # Author title
-        author_title: No coding no life
+        author_title: Front-End Web Developer
         # Author's current location
         location: Taipei, Taiwan
         # URL or path to the avatar image
