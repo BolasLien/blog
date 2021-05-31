@@ -13,25 +13,25 @@ head:
     open_graph:
         # Page title (og:title) (optional)
         # You should leave this blank for most of the time
-        title: Bolas;
+        title:
         # Page type (og:type) (optional)
         # You should leave this blank for most of the time
-        type: blog
+        type:
         # Page URL (og:url) (optional)
         # You should leave this blank for most of the time
-        url: https://bolaslien.github.io/blog/
+        url:
         # Page cover (og:image) (optional)
         # You should leave this blank for most of the time
-        image: /img/og_img.png
+        image: ./img/og_img.png
         # Site name (og:site_name) (optional)
         # You should leave this blank for most of the time
-        site_name: BolasLien
+        site_name: No coding no life
         # Page author (article:author) (optional)
         # You should leave this blank for most of the time
         author: Bolas
         # Page description (og:description) (optional)
         # You should leave this blank for most of the time
-        description: 我是小艾，喜歡思考流程優化，喜歡解決問題。
+        description:
         # Twitter card type (twitter:card)
         twitter_card:
         # Twitter ID (twitter:creator)
@@ -193,7 +193,7 @@ widgets:
         # Author name
         author: Bolas
         # Author title
-        author_title: Front-End Web Developer
+        author_title: No coding no life
         # Author's current location
         location: Taipei, Taiwan
         # URL or path to the avatar image
