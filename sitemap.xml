@@ -79,14 +79,14 @@
   </url>
   
   <url>
-    <loc>https://bolaslien.github.io/blog/2021/02/18/vue-parent-emit/</loc>
+    <loc>https://bolaslien.github.io/blog/2021/02/24/what-git-is/</loc>
     
     <lastmod>2021-05-26</lastmod>
     
   </url>
   
   <url>
-    <loc>https://bolaslien.github.io/blog/2021/02/24/what-git-is/</loc>
+    <loc>https://bolaslien.github.io/blog/2021/02/18/vue-parent-emit/</loc>
     
     <lastmod>2021-05-26</lastmod>
     
@@ -121,14 +121,14 @@
   </url>
   
   <url>
-    <loc>https://bolaslien.github.io/blog/2020/12/18/cypress-intro-note/</loc>
+    <loc>https://bolaslien.github.io/blog/2021/05/12/git-rebase-remote-branch/</loc>
     
     <lastmod>2021-05-26</lastmod>
     
   </url>
   
   <url>
-    <loc>https://bolaslien.github.io/blog/2021/05/12/git-rebase-remote-branch/</loc>
+    <loc>https://bolaslien.github.io/blog/2020/12/18/cypress-intro-note/</loc>
     
     <lastmod>2021-05-26</lastmod>
     
@@ -382,13 +382,6 @@
   </url>
   
   <url>
-    <loc>https://bolaslien.github.io/blog/tags/string/</loc>
-    <lastmod>2021-06-18</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://bolaslien.github.io/blog/tags/operator/</loc>
     <lastmod>2021-06-18</lastmod>
     <changefreq>daily</changefreq>
@@ -397,6 +390,13 @@
   
   <url>
     <loc>https://bolaslien.github.io/blog/tags/if/</loc>
+    <lastmod>2021-06-18</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://bolaslien.github.io/blog/tags/string/</loc>
     <lastmod>2021-06-18</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
