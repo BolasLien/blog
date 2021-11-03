@@ -4,7 +4,6 @@ date: 2020-09-21 15:48:45
 tags:
 - putty
 - ssh
-- linux
 categories: 筆記
 ---
 1. 先用putty登入遠端

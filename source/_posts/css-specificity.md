@@ -3,8 +3,6 @@ title: CSS 選擇器權重 Specificity
 date: 2020-12-21 18:07:34
 tags:
 - css
-- selector
-- specificity
 categories: 前端
 ---
 

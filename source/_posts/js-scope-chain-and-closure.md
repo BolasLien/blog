@@ -3,10 +3,6 @@ title: JavaScript Scope Chain 與 Closure
 date: 2021-08-26 17:39:17
 tags:
 - JavaScript
-- js
-- scope chain
-- closure
-- function scope
 categories: 筆記
 ---
 #### Scope 到底是指哪裡？

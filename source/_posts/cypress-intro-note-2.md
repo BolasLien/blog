@@ -2,7 +2,8 @@
 title: Cypress入門筆記(下)
 date: 2020-12-22 11:01:33
 tags:
-- e2e testing
+- testing
+- cypress
 categories: 測試
 ---
 這裡是下半部分的學習筆記，文章最後有一個自己的總結。

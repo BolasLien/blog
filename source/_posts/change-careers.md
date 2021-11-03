@@ -2,10 +2,8 @@
 title: 我是如何轉職前端工程師(泰山前端網頁開發技術)
 date: 2020-12-30 15:45:44
 tags:
-- 泰山職訓
 - 轉職
-- 轉換跑道
-categories: 職涯
+categories: 心得分享
 ---
 
 之前的文章有提到，[為什麼我不繼續做聖騎士PM](https://bolaslien.github.io/blog/2020/08/19/%E7%82%BA%E4%BB%80%E9%BA%BC%E6%88%91%E4%B8%8D%E7%B9%BC%E7%BA%8C%E5%81%9A%E8%81%96%E9%A8%8E%E5%A3%ABPM/)。

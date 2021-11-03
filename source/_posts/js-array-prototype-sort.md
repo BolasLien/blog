@@ -2,8 +2,7 @@
 title: JavaScript 陣列排序 sort
 date: 2021-10-25 18:00:00
 tags:
-  - javascript
-  - js array
+- javascript
 categories: 筆記
 ---
 

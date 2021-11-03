@@ -1,10 +1,9 @@
 ---
-title: actions與mutations的差異
+title: vuex actions與mutations的差異
 date: 2020-12-11 18:14:37
 tags:
-- vuex
 - vue
-- store
+- vuex
 categories: 前端
 ---
 

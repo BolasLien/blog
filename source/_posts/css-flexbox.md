@@ -3,8 +3,6 @@ title: CSS Flexbox 屬性及用法
 date: 2021-07-05 15:41:56
 tags:
 - css
-- RWD
-- flex
 categories: 筆記
 ---
 ## Flexbox 是什麼？

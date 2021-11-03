@@ -2,10 +2,7 @@
 title: Javascript Array every() 方法
 date: 2021-05-28 16:47:07
 tags:
-- js
 - javascript
-- array
-- 陣列操作
 categories: 筆記
 ---
 

@@ -2,10 +2,7 @@
 title: Javascript Array slice() 方法
 date: 2021-05-27 18:06:58
 tags:
-- js
 - javascript
-- array
-- 陣列操作
 categories: 筆記
 ---
 

@@ -3,9 +3,7 @@ title: 問題思考 - 如何保留資料狀態
 date: 2021-09-29 16:14:30
 tags:
 - example
-- work
-- js
-- closure
+- javascript
 categories: 筆記
 ---
 

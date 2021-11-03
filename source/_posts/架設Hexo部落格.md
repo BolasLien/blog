@@ -1,9 +1,8 @@
 ---
 title: 用Hexo建部落格踩到的坑
 date: 2020-08-28 13:55:28
-tags: 
+tags:
 - Hexo
-- Blog
 categories: 筆記
 ---
 在職訓的時候寫了markdown的筆記想說要找地方放出來，正好在待業中的階段可以練一下自架markdown的blog

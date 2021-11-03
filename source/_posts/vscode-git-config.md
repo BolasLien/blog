@@ -1,8 +1,7 @@
 ---
-title: vscode切換git使用者
+title: 設定 git 使用者及信箱
 date: 2020-12-15 15:37:07
 tags:
-- vscode
 - git
 categories: 筆記
 ---

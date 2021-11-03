@@ -2,12 +2,7 @@
 title: JavaScript 什麼是強制轉型(type coercion)、以及如何轉型？
 date: 2021-11-02 15:11:07
 tags:
-  - javascript
-  - js
-  - js coercion
-  - js type
-  - type coercion
-  - type conversion
+- javascript
 categories:
 ---
 

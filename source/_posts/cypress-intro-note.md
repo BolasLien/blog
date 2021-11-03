@@ -2,7 +2,8 @@
 title: Cypress入門筆記(上)
 date: 2020-12-18 14:42:13
 tags:
-- e2e testing
+- testing
+- cypress
 categories: 測試
 ---
 最近在學習測試，選擇了Cypress這個工具，如果你寫過JQuery，你對他的語法會很快上手。

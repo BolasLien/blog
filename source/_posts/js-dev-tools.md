@@ -2,11 +2,7 @@
 title: 別再只會用console.log了
 date: 2021-06-08 15:56:23
 tags:
-- js
 - javascript
-- dev tools
-- debug
-- console.log
 categories: 筆記
 ---
 介紹一些開發時好用的方法，別再只會用`console.log`了
