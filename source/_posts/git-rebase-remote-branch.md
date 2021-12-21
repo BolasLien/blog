@@ -1,5 +1,5 @@
 ---
-title: Git如何使fork專案跟原始專案同步commit
+title: Git 如何使 fork 專案跟原始專案同步 commit
 date: 2021-05-12 12:13:44
 tags:
 - git
