@@ -3,7 +3,8 @@ title: JavaScript 如何區分表達式(Expression)與陳述式(Statement)?
 date: 2021-10-27 16:25:52
 tags:
 - javascript
-categories: 六角JS直播班
+categories:
+- [筆記, javascript]
 ---
 
 ## JavaScript 怎麼理解我們輸入的東西?

@@ -1,9 +1,10 @@
 ---
-title: 用邏輯判斷 ||(OR) 及 &&(AND) 來改寫 if (短路求值 Short-circuit evaluation)
+title: JS 用邏輯判斷 ||(OR) 及 &&(AND) 來改寫 if (短路求值 Short-circuit evaluation)
 date: 2021-06-18 16:13:53
 tags:
 - javascript
-categories: 筆記
+categories:
+- [筆記, javascript]
 ---
 
 先講結論：`||`、 `&&` 可以幫助程式碼變得更短。

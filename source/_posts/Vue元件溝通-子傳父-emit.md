@@ -3,7 +3,8 @@ title: Vue元件溝通-子傳父($emit)
 date: 2020-10-13 16:18:16
 tags:
 - vue
-categories: 筆記
+categories:
+- [筆記, vue]
 ---
 常常忘記子傳父($emit)的寫法，這裡筆記一下
 子件的事件被觸發的時候要做事

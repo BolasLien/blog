@@ -3,7 +3,8 @@ title: JavaScript 變數提升 Variable Hoisting
 date: 2021-07-13 12:35:22
 tags:
 - javascript
-categories: 筆記
+categories:
+- [筆記, javascript]
 ---
 ## 變數的提升（Hoisting）
 

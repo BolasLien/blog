@@ -1,12 +1,15 @@
 ---
-title: Git是怎麼一回事
+title: Git 原理與版本控制知識
 date: 2021-02-24 16:53:03
 tags:
 - git
-categories: 筆記
+categories:
+- [筆記, git]
 ---
 看了高見龍的影片[《你知道Git是怎麼一回事嗎》](https://www.youtube.com/watch?v=LgTf7m5B0xA)，學習Git的原理，趁著記憶猶新來寫一下筆記。
+
 <!-- more -->
+
 ## 我的收穫
 這部影片釐清了我的Git觀念，也解釋了我一直搞不清楚為何效能比SVN好。推薦給平常有再使用Git、但實際上不知道Git是怎麼運作的人看這部影片。
 

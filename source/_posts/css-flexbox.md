@@ -3,7 +3,8 @@ title: CSS Flexbox 屬性及用法
 date: 2021-07-05 15:41:56
 tags:
 - css
-categories: 筆記
+categories:
+- [筆記, css]
 ---
 ## Flexbox 是什麼？
 

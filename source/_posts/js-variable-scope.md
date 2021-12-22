@@ -3,7 +3,8 @@ title: JavaScript 變數作用域 Variable Scope
 date: 2021-07-14 12:45:02
 tags:
 - javascript
-categories: 筆記
+categories:
+- [筆記, javascript]
 ---
 ## 變數的作用域（Scope）
 

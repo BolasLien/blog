@@ -3,7 +3,8 @@ title: Javascript Array every() 方法
 date: 2021-05-28 16:47:07
 tags:
 - javascript
-categories: 筆記
+categories:
+- [筆記, javascript]
 ---
 
 針對陣列中的每個元素，執行callback，當`全部`元素都符合條件，就回傳`true`，否則回傳`false`

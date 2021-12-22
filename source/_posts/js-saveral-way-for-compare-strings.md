@@ -1,9 +1,10 @@
 ---
-title: javascript 比對字串的幾個方法
+title: JS 比對字串的幾個方法
 date: 2021-03-25 11:04:05
 tags:
 - javascript
-categories: 筆記
+categories:
+- [筆記, javascript]
 ---
 
 在處理要允許的host時，用到了幾個方法做了筆記，以下也會提到一些要注意的地方。

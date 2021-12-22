@@ -3,7 +3,8 @@ title: CSS height 的單位有什麼差別？
 date: 2021-07-08 15:03:59
 tags:
 - css
-categories: 筆記
+categories:
+- [筆記, css]
 ---
 
 要讓`height`可以有效果，`height`的設定必須是**絕對單位（px, rem...）**。例如：

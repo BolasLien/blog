@@ -1,9 +1,10 @@
 ---
-title: Git 跨平台開發會遇到的問題
+title: Git 跨平台開發 未修改的檔案出現異動(換行警告、檔案權限)
 date: 2021-12-21 15:54:58
 tags:
   - git
-categories: 筆記
+categories:
+- [筆記, git]
 ---
 
 嘗試把一個大專案從 SVN 移到 Git 時，發現從 Windows 環境作 `git clone` 的時候，檔案會莫名奇妙的有異動，而這個異動卻從文件比對看不出有差異。

@@ -3,7 +3,8 @@ title: JavaScript 變數 Variables var let const
 date: 2021-08-04 21:43:35
 tags:
 - javascript
-categories: 筆記
+categories:
+- [筆記, javascript]
 ---
 ### 定義
 
