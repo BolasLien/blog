@@ -126,7 +126,7 @@ console.count('洋蔥') // 洋蔥: 5
 ```
 
 ## 追蹤某個操作經過的時間
-用`console.time()`開始計時，直到`console.groupEnd()`為止，會印出經過的操作耗費多少毫秒(每個人電腦不同，結果會不同)
+用`console.time()`開始計時，直到`console.timeEnd()`為止，會印出經過的操作耗費多少毫秒(每個人電腦不同，結果會不同)
 
 ```javascript console.time
 console.time('for')
