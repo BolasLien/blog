@@ -24,15 +24,21 @@ widget:
     subscribe_email: 'Güncellemeler için abone olun'
     subscribe: 'Abone ol'
     adsense: 'İlan'
+    followit: 'follow.it'
 article:
     created_at: '%s&nbsp;yayınlandı'
     updated_at: '%s&nbsp;güncellendi'
     more: 'Daha fazla oku'
     comments: 'Yorumlar'
-    read_time: '%s okundu'
+    read_time: '%s okuma süresi'
     word_count:
         one: 'Yaklaşık %d kelime'
         other: 'Yaklaşık %d kelime'
+    licensing:
+        author: 'Author'
+        created_at: 'Posted on'
+        updated_at: 'Updated on'
+        licensed_under: 'Licensed under'
 donate:
     title: 'Bu makaleyi beğendiniz mi? Yazarı şununla destekleyin'
     afdian: 'Afdian.net'
@@ -45,8 +51,15 @@ plugin:
     backtotop: 'Başa dönüş'
     visit_count: '%s&nbsp;ziyaret'
     visitor_count: '%s kullanıcı tarafından ziyaret edildi'
+    cookie_consent:
+      message: Bu web sitesi, deneyiminizi geliştirmek için çerezler kullanır.
+      dismiss: Anladım!
+      allow: Çerezlere izin ver
+      deny: Reddet
+      link: Daha fazla bilgi edin
+      policy: Çerez politikası
 search:
-    search: 'Search'
+    search: 'Ara'
     hint: 'Bir şeyler yaz...'
     no_result: 'İçin sonuç yok'
     untitled: '(Başlıksız)'
