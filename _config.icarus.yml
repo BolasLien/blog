@@ -56,8 +56,8 @@ widgets:
     -
         position: left
         type: profile
-        author: Bolas
-        author_title: Front-End Web Developer
+        author: 連小艾
+        author_title: Frontend Web Developer
         location: Taipei, Taiwan
         avatar: ./img/avatar.jpg
         avatar_rounded: false

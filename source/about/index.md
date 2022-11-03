@@ -1,16 +1,20 @@
 ---
 title: about
-date: 2021-05-26 18:02:59
+date: 2022-11-04 00:08:59
 type: about
 ---
 # 關於我
-嗨，我是Bolas，一名前端工程師，喜歡思考流程優化，喜歡解決問題。
-工作上主要使用javascript程式語言，熟悉的框架及工具為vue(v2)/vuex/vue-router、webpack、less/scss，並且持續精進中。
+嗨，我是連小艾，一名前端工程師。
+熟悉的技能為 Scss/Less, Vue, Webpack, Gulp, Git, Linux command line (使用過 docker, cypress)。
+
+我喜歡團隊協作的環境，視團隊為優先，當我協助提升團隊工作效率、或是引導團隊解決難題的時候，我會感到很有成就感。
+若想要了解更多我的經歷，可以參考[我的Linkedin](https://www.linkedin.com/in/bolaslien/)
+
 
 # 關於部落格
-這裡記錄了我的開發筆記、踩過的坑。
-~~為了這個部落格我還另外設計favicon跟logo..~~
+這裡記錄了我的技術學習筆記、踩過的坑，以及軟體開發心得筆記。
+
 
 # 聯絡方式
-可以透過Email聯絡我:)
-bolaslien@gmail.com
+- [Linkedin](https://www.linkedin.com/in/bolaslien/)
+- [Email](mailto:bolaslien@gmail.com)
