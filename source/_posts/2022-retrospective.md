@@ -56,4 +56,4 @@ categories: 心得分享
 - 學會 React 生態系、Unit Test、Docker
 - 保持閱讀習慣
 - 增加運動量
--
+- 用寫作分享自己的事
