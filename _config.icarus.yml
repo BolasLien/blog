@@ -41,7 +41,7 @@ navbar:
             url: https://bolaslien.github.io/
 article:
     highlight:
-        theme: tomorrow-night
+        theme: atom-one-light
         clipboard: true
         fold: unfolded
     readtime: true
