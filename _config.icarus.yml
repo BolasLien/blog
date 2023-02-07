@@ -99,7 +99,7 @@ plugins:
         web_id:
     gallery: true
     google_analytics:
-        tracking_id: UA-168227875-3
+        tracking_id: G-SG50KRG586
     hotjar:
         site_id:
     katex: false
