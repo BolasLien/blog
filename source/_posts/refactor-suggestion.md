@@ -2,7 +2,7 @@
 title: 重構的心得與建議
 date: 2023-02-18 10:05:37
 tags:
-  - thinking
+- thinking
 categories: 心得分享
 ---
 

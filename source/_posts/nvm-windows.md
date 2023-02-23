@@ -2,7 +2,7 @@
 title: 在 Windows 用 nvm 切換 Node 版本
 date: 2020-08-28 16:03:47
 tags:
-- node.js
+- nodejs
 categories: 筆記
 ---
 1. 安裝nvm

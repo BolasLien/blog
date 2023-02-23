@@ -2,9 +2,8 @@
 title: webpack 打包速度救星 esbuild-loader
 date: 2022-10-26 21:30:11
 tags:
-  - webpack
-categories:
-  - 前端工程
+- webpack
+categories: 前端技術
 ---
 
 最近在優化公司專案用的 webpack，查資料查到[這篇文章](https://blog.logrocket.com/webpack-or-esbuild-why-not-both/)，

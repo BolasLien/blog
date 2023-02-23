@@ -2,7 +2,7 @@
 title: Scrum daily meeting 每日會議
 date: 2022-06-25 16:08:45
 tags:
-  - scrum
+- scrum
 categories: 軟體開發
 ---
 

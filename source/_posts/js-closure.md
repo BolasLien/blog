@@ -1,10 +1,9 @@
 ---
-title: 閉包 Closure
+title: JavaScript 閉包 Closure
 date: 2022-06-02 10:05:18
 tags:
-  - javascript
-categories:
-  - [筆記, javascript]
+- javascript
+categories: 筆記
 ---
 
 當 function 執行完之後，會進行記憶體釋放，也就是說 function 內的變數就再也找不到了。

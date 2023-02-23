@@ -3,7 +3,7 @@ title: JavaScript 什麼是強制轉型(type coercion)、以及如何轉型？
 date: 2021-11-02 15:11:07
 tags:
 - javascript
-categories:
+categories: 筆記
 ---
 
 ## 強制轉型是在轉什麼?

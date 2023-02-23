@@ -3,8 +3,7 @@ title: JavaScript Scope Chain 與 Closure
 date: 2021-08-26 17:39:17
 tags:
 - javascript
-categories:
-- [筆記, javascript]
+categories: 筆記
 ---
 #### Scope 到底是指哪裡？
 Scope 是變數的有效範圍。

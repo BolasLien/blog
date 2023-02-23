@@ -1,5 +1,5 @@
 ---
-title: 別再只會用console.log了
+title: 別再只會用 console.log 了
 date: 2021-06-08 15:56:23
 tags:
 - javascript

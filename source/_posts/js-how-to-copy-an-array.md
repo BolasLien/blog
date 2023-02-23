@@ -3,7 +3,7 @@ title: JavaScript 如何複製陣列？
 date: 2021-09-01 17:29:22
 tags:
 - javascript
-categories:
+categories: 筆記
 ---
 做陣列資料裡的時候，有時候不希望異動到原始的資料，所以會將資料複製一份來用。
 

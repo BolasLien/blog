@@ -1,5 +1,5 @@
 ---
-title: putty使用ssh登入遠端無須密碼
+title: putty 使用 ssh 登入遠端無須密碼
 date: 2020-09-21 15:48:45
 tags:
 - putty

@@ -6,7 +6,7 @@ tags:
 - todolist
 - javascript
 - vue
-categories: 心得
+categories: 筆記
 ---
 
 ## 為什麼大家都在做 TodoList？

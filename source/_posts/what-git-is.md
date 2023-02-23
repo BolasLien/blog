@@ -3,8 +3,7 @@ title: Git 原理與版本控制知識
 date: 2021-02-24 16:53:03
 tags:
 - git
-categories:
-- [筆記, git]
+categories: 筆記
 ---
 看了高見龍的影片[《你知道Git是怎麼一回事嗎》](https://www.youtube.com/watch?v=LgTf7m5B0xA)，學習Git的原理，趁著記憶猶新來寫一下筆記。
 

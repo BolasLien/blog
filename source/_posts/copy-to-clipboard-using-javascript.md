@@ -2,9 +2,9 @@
 title: JavaScript 實作點擊按鈕複製文字功能
 date: 2022-03-02 13:51:20
 tags:
-  - javascript
-  - ios
-  - clipboard
+- javascript
+- ios
+- clipboard
 categories: 前端技術
 ---
 

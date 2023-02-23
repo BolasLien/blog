@@ -3,8 +3,7 @@ title: JavaScript Bind Call Apply
 date: 2021-08-24 17:33:00
 tags:
 - javascript
-categories:
-- [筆記, javascript]
+categories: 筆記
 ---
 認識 bind, call, apply 這三個方法之前，先說說 `function` 與 `this`。
 

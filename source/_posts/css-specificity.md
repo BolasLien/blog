@@ -3,7 +3,7 @@ title: CSS 選擇器權重 Specificity
 date: 2020-12-21 18:07:34
 tags:
 - css
-categories: 前端
+categories: 前端技術
 ---
 
 ## CSS 選擇器是如何判斷要套用哪個樣式?

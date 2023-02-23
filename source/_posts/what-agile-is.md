@@ -3,7 +3,7 @@ title: 敏捷（agile）到底是什麼？
 date: 2021-12-01 16:00:25
 tags:
 - development
-categories: 管理
+categories: 軟體開發
 ---
 
 ## 傳統的開發流程

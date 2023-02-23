@@ -2,9 +2,8 @@
 title: nodejs 怎麼處理 Windows 及 Linux 的路徑
 date: 2022-09-15 10:54:01
 tags:
-  - node.js
-categories:
-  - [筆記, javascript]
+- nodejs
+categories: 筆記
 ---
 
 最近在逐步把開發環境移到本機上，原本在 Linux 運行好好的程式，到 Windows 上都出錯了

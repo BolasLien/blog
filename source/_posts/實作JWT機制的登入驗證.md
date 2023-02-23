@@ -1,10 +1,10 @@
 ---
 title: 實作JWT機制的登入驗證
 date: 2020-08-18 12:09:18
-tags: 
+tags:
 - token
 - jwt
-- node.js
+- nodejs
 - Express
 categories: 筆記
 ---
@@ -13,11 +13,11 @@ categories: 筆記
 1. Client登入請求
 2. Server接到請求，確定登入後簽發Token給Client
 3. Client收到Response，並記下Token
-4. 
+4.
      * Client=>需要驗證的操作都要帶Token給Server
      * Server=>需要驗證的操作都要解析Token確認是本人
 <!-- more -->
-     
+
 ## Server
 ### 環境及套件
 Node.js + Express
@@ -47,7 +47,7 @@ const verify = jwt.verify(token, secret)
 ```javascript=
 this.axios
 .post(API + 'login' ,{ account, password})
-.then(response => { 
+.then(response => {
   // 登入請求成功
   // 從response取出token存起來，之後需要驗證的請求都可以拿來用
 })
@@ -63,7 +63,7 @@ this.axios
 ```javascript=
 this.axios
 .get(API + '/order' ,{ headers: { Authorization: 'Bearer '+ token } })
-.then(response => { 
+.then(response => {
   // 請求成功的話要做的事情
 })
 .catch(error=>{

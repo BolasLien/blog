@@ -2,9 +2,8 @@
 title: img 標籤與 background-image 屬性的差別
 date: 2022-07-19 23:55:07
 tags:
-  - 切版
-categories:
-  - 筆記
+- 切版
+categories: 前端技術
 ---
 
 ## 使用時機

@@ -2,8 +2,7 @@
 title: 成為前端工程師一年後的感覺
 date: 2021-12-30 13:45:04
 tags:
-  - 職涯
-  - 轉職
+- career
 categories: 心得分享
 ---
 

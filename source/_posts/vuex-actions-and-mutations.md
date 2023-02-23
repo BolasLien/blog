@@ -4,7 +4,7 @@ date: 2020-12-11 18:14:37
 tags:
 - vue
 - vuex
-categories: 前端
+categories: 筆記
 ---
 
 一開始看不懂vuex為何要分mutation跟action兩個寫法，後來查閱了一些資料、加上問公司的前輩，雖然明白了，但還沒辦法體會。

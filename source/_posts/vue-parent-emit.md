@@ -3,8 +3,7 @@ title: Vue元件溝通-觸發父元件的事件(parent.$emit)
 date: 2021-02-18 11:53:15
 tags:
 - vue
-categories:
-- [筆記, vue]
+categories: 筆記
 ---
 經由子元件來觸發父件的事件
 把事件綁在父元件裡`this.$on('say-hi')`

@@ -4,7 +4,7 @@ date: 2020-12-15 16:14:16
 tags:
 - testing
 - cypress
-categories: 前端
+categories: 測試
 ---
 
 執行這些步驟之前，你必須要先有cypress的測試目錄喔。

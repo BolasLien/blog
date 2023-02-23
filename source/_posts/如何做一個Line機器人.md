@@ -1,9 +1,9 @@
 ---
 title: 如何做一個Line機器人
 date: 2020-04-29 09:20:43
-tags: 
-- node.js
-- line-bot
+tags:
+- nodejs
+- linebot
 categories: 筆記
 ---
 ## 前置作業
