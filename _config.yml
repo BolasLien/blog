@@ -1,10 +1,10 @@
-title: Bolas的開發與學習筆記
-subtitle: No coding no life
-description: 前端工程師，喜歡思考流程優化，喜歡解決問題。
-keywords: Web Developer, Front End, JavaScript, Vue, Git, 前端, 網頁
-author: Bolas
+title: Bolas 的開發與學習筆記
+subtitle: Process matters, not just code
+description: 喜歡思考流程、挑戰重構、用程式讓事情更好一點的前端工程師。
+keywords: 前端工程師, Frontend Developer, JavaScript, Vue, React, 架構, 重構, 開發流程, 網頁設計, 程式學習筆記
+author: Bolas Lien
 language: zh-TW
-timezone: ''
+timezone: Asia/Taipei
 url: 'https://bolaslien.github.io/blog/'
 root: /blog
 permalink: ':year/:month/:day/:title/'
