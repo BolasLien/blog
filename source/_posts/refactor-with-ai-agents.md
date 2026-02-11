@@ -33,7 +33,7 @@ categories: 技術心得
 - **安裝對應的 Skills**：我在 [skills.sh](https://skills.sh/) 找了對應的工具，裝了 `vue-best-practices`、`tailwind-design-system` 等。安裝好這些 Skill 後，AI 就比我還像個經驗豐富的工程師。
 - **產出遷移計劃**：講完需求後請他做遷移計畫。中間他把計畫做得太大、太細節了（有很多多人協作的內容），我補了一句：「這只是我個人的小專案，不需要考慮協作。」他立即把計畫改成簡易版，甚至還自動幫我加了 Playwright 做 E2E 測試來當驗收標準。
 
-**等到計畫確認沒問題後，我就請他按照計畫開始重構，做完再叫我。** 整個過程我就只是在旁邊看 Codex 表演，做完後試了一下，所有功能都完整遷移成功了。
+**等到計畫確認沒問題後，我就請他按照計畫開始重構，做完再叫我。** 整個過程我就只是在旁邊看 Codex 表演，做完後試了一下，所有功能都完整遷移成功了。（如果你好奇這中間具體改了哪些程式碼，可以參考這份實測的 [Pull Request](https://github.com/BolasLien/pomodoro/pull/50)）
 
 ![技術棧遷移紀錄](update-readme.png)
 ![AI 執行自動重構中](ai-refactoring-execution.png)
