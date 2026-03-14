@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git *)",
+      "Bash(pnpm *)",
+      "Write(*)",
+      "Edit(*)",
+      "Bash(python3.11 -c \":*)",
+      "Bash(curl *)"
+    ]
+  }
+}
