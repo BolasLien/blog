@@ -170,6 +170,13 @@ module.exports = class extends Component {
                 facebookAdmins={open_graph.fb_admins}
                 facebookAppId={open_graph.fb_app_id} /> : null}
 
+            {typeof open_graph === 'object' && open_graph !== null ? <meta property="twitter:title" content={open_graph.title || page.title || config.title} /> : null}
+            {typeof open_graph === 'object' && open_graph !== null ? (() => {
+                const raw = open_graph.description || page.description || page.excerpt || page.content || config.description;
+                const desc = raw ? stripHTML(raw).substring(0, 200).trim().replace(/\n/g, ' ') : '';
+                return <meta property="twitter:description" content={desc} />;
+            })() : null}
+
             {is_post(page)
                 ? <script type="application/ld+json"
                     dangerouslySetInnerHTML={{ __html: JSON.stringify(buildArticleJsonLd(page, config, structuredImages)) }} />
