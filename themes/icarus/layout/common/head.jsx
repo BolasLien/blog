@@ -4,6 +4,25 @@ const WebApp = require('hexo-component-inferno/lib/view/misc/web_app');
 const OpenGraph = require('hexo-component-inferno/lib/view/misc/open_graph');
 const StructuredData = require('hexo-component-inferno/lib/view/misc/structured_data');
 const Plugins = require('./plugins');
+const { stripHTML } = require('hexo-util');
+
+function buildArticleJsonLd(page, config, images) {
+    const description = page.description
+        || (page.excerpt ? stripHTML(page.excerpt).substring(0, 200).trim() : '')
+        || (page.content ? stripHTML(page.content).substring(0, 200).trim() : '');
+
+    return {
+        '@context': 'https://schema.org',
+        '@type': 'Article',
+        headline: page.title,
+        author: { '@type': 'Person', name: config.author },
+        datePublished: page.date ? page.date.toISOString() : undefined,
+        dateModified: page.updated ? page.updated.toISOString() : undefined,
+        image: images,
+        description: description,
+        url: page.permalink
+    };
+}
 
 function getPageTitle(page, siteTitle, helper) {
     let title = page.title;
@@ -151,16 +170,20 @@ module.exports = class extends Component {
                 facebookAdmins={open_graph.fb_admins}
                 facebookAppId={open_graph.fb_app_id} /> : null}
 
-            {typeof structured_data === 'object' && structured_data !== null ? <StructuredData
-                title={structured_data.title || page.title || config.title}
-                description={structured_data.description || page.description || page.excerpt || page.content || config.description}
-                url={structured_data.url || page.permalink || url}
-                author={structured_data.author || config.author}
-                publisher={structured_data.publisher || config.title}
-                publisherLogo={structured_data.publisher_logo || config.logo}
-                date={page.date}
-                updated={page.updated}
-                images={structuredImages} /> : null}
+            {is_post(page)
+                ? <script type="application/ld+json"
+                    dangerouslySetInnerHTML={{ __html: JSON.stringify(buildArticleJsonLd(page, config, structuredImages)) }} />
+                : (typeof structured_data === 'object' && structured_data !== null ? <StructuredData
+                    title={structured_data.title || page.title || config.title}
+                    description={structured_data.description || page.description || page.excerpt || page.content || config.description}
+                    url={structured_data.url || page.permalink || url}
+                    author={structured_data.author || config.author}
+                    publisher={structured_data.publisher || config.title}
+                    publisherLogo={structured_data.publisher_logo || config.logo}
+                    date={page.date}
+                    updated={page.updated}
+                    images={structuredImages} /> : null)
+            }
 
             {canonical_url ? <link rel="canonical" href={canonical_url} /> : null}
             {rss ? <link rel="alternate" href={url_for(rss)} title={config.title} type="application/atom+xml" /> : null}
