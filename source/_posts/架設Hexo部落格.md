@@ -4,6 +4,7 @@ date: 2020-08-28 13:55:28
 tags:
 - Hexo
 categories: 筆記
+description: 分享使用 Hexo 靜態網站產生器架設個人技術部落格的完整步驟與設定心得。
 ---
 在職訓的時候寫了markdown的筆記想說要找地方放出來，正好在待業中的階段可以練一下自架markdown的blog
 

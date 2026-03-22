@@ -4,6 +4,7 @@ date: 2021-05-12 12:13:44
 tags:
 - git
 categories: 筆記
+description: 介紹如何使用 Git rebase 同步 fork 專案與原始上游（upstream）專案的 commit 歷史。
 ---
 ## 使用fork的方式進行開發
 開發到一個段落時，如果直接推送自己的東西進master，未來要合併回原始專案的時候，很有機會遇到衝突(可能錯過了一些commit導致)；所以先跟原始專案做"對齊"的動作，再推送自己開發的東西會比較保險

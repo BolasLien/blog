@@ -4,6 +4,7 @@ date: 2022-06-25 16:08:45
 tags:
 - scrum
 categories: 軟體開發
+description: 記錄參與 Scrum 每日站立會議的經驗，分享如何讓 15 分鐘的 Daily Meeting 更有效率。
 ---
 
 第一次實際參與 Scrum Team 至今也半年了，平時寫的文章都是介紹技術比較多，但希望可以留下一些跑 Scrum 的紀錄，

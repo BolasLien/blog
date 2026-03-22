@@ -4,6 +4,7 @@ date: 2020-12-21 18:07:34
 tags:
 - css
 categories: 前端技術
+description: 解釋 CSS 選擇器的權重（Specificity）規則，幫助理解樣式衝突時的套用優先順序。
 ---
 
 ## CSS 選擇器是如何判斷要套用哪個樣式?

@@ -4,6 +4,7 @@ date: 2021-10-25 18:00:00
 tags:
 - javascript
 categories: 筆記
+description: 介紹 JavaScript Array.sort() 方法的排序規則，以及如何撰寫自訂比較函式進行排序。
 ---
 
 ## 預設排序

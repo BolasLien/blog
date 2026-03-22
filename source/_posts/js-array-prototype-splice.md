@@ -4,6 +4,7 @@ date: 2021-05-27 18:06:58
 tags:
 - javascript
 categories: 筆記
+description: 介紹 JavaScript Array.splice() 方法，對陣列進行刪除或插入資料的操作方式與範例。
 ---
 
 對陣列做`刪除`或`插入`資料。

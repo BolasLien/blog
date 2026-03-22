@@ -4,6 +4,7 @@ date: 2020-08-28 16:03:47
 tags:
 - nodejs
 categories: 筆記
+description: 介紹在 Windows 系統上安裝與使用 nvm（Node Version Manager）管理多個 Node.js 版本的方法。
 ---
 1. 安裝nvm
 [在此下載](https://github.com/coreybutler/nvm-windows)

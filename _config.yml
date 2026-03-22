@@ -67,6 +67,10 @@ deploy:
   branch: gh-pages
 sitemap:
   path: sitemap.xml
+  exclude:
+    - archives/**
+    - categories/**
+    - tags/**
 
 marked:
   prependRoot: true

@@ -4,6 +4,7 @@ date: 2021-06-08 15:56:23
 tags:
 - javascript
 categories: 筆記
+description: 介紹 JavaScript 開發中常用的瀏覽器開發者工具（DevTools）技巧與偵錯方法。
 ---
 介紹一些開發時好用的方法，別再只會用`console.log`了
 

@@ -4,6 +4,7 @@ date: 2021-06-18 16:13:53
 tags:
 - javascript
 categories: 筆記
+description: 介紹 JavaScript 短路求值（Short-circuit evaluation），活用 || 和 && 讓程式碼更精簡。
 ---
 
 先講結論：`||`、 `&&` 可以幫助程式碼變得更短。

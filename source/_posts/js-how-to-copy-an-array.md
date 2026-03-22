@@ -4,6 +4,7 @@ date: 2021-09-01 17:29:22
 tags:
 - javascript
 categories: 筆記
+description: 介紹在 JavaScript 中正確複製陣列的各種方法，避免參考賦值導致原始資料被意外修改。
 ---
 做陣列資料裡的時候，有時候不希望異動到原始的資料，所以會將資料複製一份來用。
 

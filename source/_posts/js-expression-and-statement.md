@@ -4,6 +4,7 @@ date: 2021-10-27 16:25:52
 tags:
 - javascript
 categories: 筆記
+description: 解析 JavaScript 中表達式（Expression）與陳述式（Statement）的核心差異與使用方式。
 ---
 
 ## JavaScript 怎麼理解我們輸入的東西?

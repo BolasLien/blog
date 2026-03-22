@@ -4,6 +4,7 @@ date: 2021-02-24 16:53:03
 tags:
 - git
 categories: 筆記
+description: 介紹 Git 版本控制系統的基本概念，了解為什麼要用 Git 以及基本操作流程。
 ---
 看了高見龍的影片[《你知道Git是怎麼一回事嗎》](https://www.youtube.com/watch?v=LgTf7m5B0xA)，學習Git的原理，趁著記憶猶新來寫一下筆記。
 

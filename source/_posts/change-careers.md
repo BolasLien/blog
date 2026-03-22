@@ -4,6 +4,7 @@ date: 2020-12-30 15:45:44
 tags:
 - career
 categories: 心得分享
+description: 分享如何從遊戲開發 PM 成功轉職前端工程師，參加泰山職訓局前端班的過程與心得。
 ---
 
 之前的文章有提到，[為什麼我不繼續做聖騎士PM](https://bolaslien.github.io/blog/2020/08/19/%E7%82%BA%E4%BB%80%E9%BA%BC%E6%88%91%E4%B8%8D%E7%B9%BC%E7%BA%8C%E5%81%9A%E8%81%96%E9%A8%8E%E5%A3%ABPM/)。

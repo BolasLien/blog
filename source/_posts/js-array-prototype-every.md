@@ -4,6 +4,7 @@ date: 2021-05-28 16:47:07
 tags:
 - javascript
 categories: 筆記
+description: 介紹 JavaScript Array.every() 方法的用法，針對陣列所有元素執行條件驗證的應用範例。
 ---
 
 針對陣列中的每個元素，執行callback，當`全部`元素都符合條件，就回傳`true`，否則回傳`false`

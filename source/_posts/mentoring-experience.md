@@ -5,6 +5,7 @@ tags:
   - thinking
   - career
 categories: 心得分享
+description: 分享帶新人的幾個收穫，記錄一段在技術成長與教學溝通上都令人難忘的 mentoring 經驗。
 ---
 
 ## 帶新人的幾個收穫

@@ -7,6 +7,7 @@ tags:
 - javascript
 - vue
 categories: 筆記
+description: 探討為什麼做 TodoList 是學習前端開發的好起點，分享個人的 TodoList 專案開發心得。
 ---
 
 ## 為什麼大家都在做 TodoList？

@@ -7,6 +7,7 @@ tags:
 - nodejs
 - Express
 categories: 筆記
+description: 介紹使用 JWT（JSON Web Token）實作安全登入驗證機制的完整流程與程式碼範例。
 ---
 ## 運作流程
 

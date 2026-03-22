@@ -5,6 +5,7 @@ tags:
 - nodejs
 - linebot
 categories: 筆記
+description: 介紹如何從零建立一個 LINE 聊天機器人，涵蓋專案設定、Webhook 串接等完整步驟。
 ---
 ## 前置作業
 1. [Heroku](https://www.heroku.com/) 註冊帳號

@@ -4,6 +4,7 @@ date: 2021-05-28 16:47:07
 tags:
 - javascript
 categories: 筆記
+description: 介紹 JavaScript Array.some() 方法，判斷陣列中是否至少有一個元素符合指定條件。
 ---
 
 針對陣列中的每個元素，執行callback，當`至少一個`元素符合條件，就回傳`true`，否則回傳`false`

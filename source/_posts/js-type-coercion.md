@@ -4,6 +4,7 @@ date: 2021-11-02 15:11:07
 tags:
 - javascript
 categories: 筆記
+description: 解析 JavaScript 強制轉型（Type Coercion）的運作機制，避免開發時踩到隱性型別轉換的陷阱。
 ---
 
 ## 強制轉型是在轉什麼?

@@ -5,6 +5,7 @@ tags:
 - putty
 - ssh
 categories: 筆記
+description: 介紹如何使用 PuTTY 配合 SSH 金鑰登入遠端伺服器，實現免密碼的安全連線方式。
 ---
 1. 先用putty登入遠端
 

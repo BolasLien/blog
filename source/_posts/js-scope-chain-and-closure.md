@@ -4,6 +4,7 @@ date: 2021-08-26 17:39:17
 tags:
 - javascript
 categories: 筆記
+description: 解析 JavaScript 作用域鏈（Scope Chain）的運作原理，以及與閉包（Closure）的關聯。
 ---
 #### Scope 到底是指哪裡？
 Scope 是變數的有效範圍。

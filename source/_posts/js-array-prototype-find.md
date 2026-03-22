@@ -4,6 +4,7 @@ date: 2021-05-28 16:47:07
 tags:
 - javascript
 categories: 筆記
+description: 介紹 JavaScript Array.find() 方法的用法，從陣列中找出第一個符合條件的元素值。
 ---
 
 針對陣列中的每個元素，執行callback，回傳`一個`符合條件的元素的`值`，否則回傳`undefined`

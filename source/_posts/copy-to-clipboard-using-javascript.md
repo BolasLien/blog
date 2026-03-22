@@ -6,6 +6,7 @@ tags:
 - ios
 - clipboard
 categories: 前端技術
+description: 介紹使用 JavaScript Clipboard API 實作點擊按鈕複製文字功能的方法，附完整範例程式碼。
 ---
 
 讓使用者可以「點擊按鈕後複製文字」的功能，經常作為分享給好友、優惠碼等活動頁需求上。

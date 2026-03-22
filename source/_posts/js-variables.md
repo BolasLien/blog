@@ -4,6 +4,7 @@ date: 2021-08-04 21:43:35
 tags:
 - javascript
 categories: 筆記
+description: 介紹 JavaScript 變數的基本概念，比較 var、let、const 的差異與各自的使用時機。
 ---
 ### 定義
 

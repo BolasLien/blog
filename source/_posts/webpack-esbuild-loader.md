@@ -4,6 +4,7 @@ date: 2022-10-26 21:30:11
 tags:
 - webpack
 categories: 前端技術
+description: 介紹使用 esbuild-loader 替換 babel-loader 來大幅提升 Webpack 建構速度的實作方法。
 ---
 
 最近在優化公司專案用的 webpack，查資料查到[這篇文章](https://blog.logrocket.com/webpack-or-esbuild-why-not-both/)，

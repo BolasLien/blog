@@ -4,6 +4,7 @@ date: 2023-02-02 17:18:50
 tags:
 - thinking
 categories: 心得分享
+description: 分享有效學習新技術的三個訣竅，以成功上手 Cypress、Docker、Webpack 等前端技術為實際案例。
 ---
 
 去年在工作上接觸了 cypress, docker, webpack, vue composition api 等前端技術，並且還有成功應用的經驗，我認為有三個訣竅幫助我有效的上手：

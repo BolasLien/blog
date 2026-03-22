@@ -4,6 +4,7 @@ date: 2021-03-25 11:04:05
 tags:
 - javascript
 categories: 筆記
+description: 整理 JavaScript 中比較字串的幾種方法，包含處理 host 白名單驗證時的注意事項。
 ---
 
 在處理要允許的host時，用到了幾個方法做了筆記，以下也會提到一些要注意的地方。

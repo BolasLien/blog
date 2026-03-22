@@ -4,6 +4,7 @@ date: 2022-06-02 10:05:18
 tags:
 - javascript
 categories: 筆記
+description: 深入解析 JavaScript 閉包（Closure）的概念，理解函式執行後如何保留外部作用域的變數。
 ---
 
 當 function 執行完之後，會進行記憶體釋放，也就是說 function 內的變數就再也找不到了。
