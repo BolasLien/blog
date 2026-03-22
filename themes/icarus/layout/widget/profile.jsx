@@ -20,6 +20,7 @@ class Profile extends Component {
     render() {
         const {
             avatar,
+            avatarWebp,
             avatarRounded,
             author,
             authorTitle,
@@ -35,7 +36,13 @@ class Profile extends Component {
                     <div class="level-item has-text-centered flex-shrink-1">
                         <div>
                             <figure class="image is-128x128 mx-auto mb-2">
-                                <img class={'avatar' + (avatarRounded ? ' is-rounded' : '')} src={avatar} alt={author} />
+                                {avatarWebp
+                                    ? <picture>
+                                        <source srcSet={avatarWebp} type="image/webp" />
+                                        <img class={'avatar' + (avatarRounded ? ' is-rounded' : '')} src={avatar} alt={author} />
+                                    </picture>
+                                    : <img class={'avatar' + (avatarRounded ? ' is-rounded' : '')} src={avatar} alt={author} />
+                                }
                             </figure>
                             {author ? <p class="title is-size-4 is-block" style={{'line-height': 'inherit'}}>{author}</p> : null}
                             {authorTitle ? <p class="is-size-6 is-block">{authorTitle}</p> : null}
@@ -105,6 +112,17 @@ Profile.Cacheable = cacheComponent(Profile, 'widget.profile', props => {
         return url_for('/img/avatar.png');
     }
 
+    function getAvatarWebp() {
+        if (gravatar) {
+            return null;
+        }
+        const avatarUrl = avatar ? url_for(avatar) : url_for('/img/avatar.png');
+        if (avatarUrl && avatarUrl.match(/\.png$/i) && !avatarUrl.startsWith('http')) {
+            return avatarUrl.replace(/\.png$/i, '.webp');
+        }
+        return null;
+    }
+
     const postCount = site.posts.length;
     const categoryCount = site.categories.filter(category => category.length).length;
     const tagCount = site.tags.filter(tag => tag.length).length;
@@ -126,6 +144,7 @@ Profile.Cacheable = cacheComponent(Profile, 'widget.profile', props => {
 
     return {
         avatar: getAvatar(),
+        avatarWebp: getAvatarWebp(),
         avatarRounded: avatar_rounded,
         author,
         authorTitle: author_title,
