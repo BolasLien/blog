@@ -5,6 +5,7 @@ tags:
 - testing
 - cypress
 categories: 測試
+description: 介紹如何在 Docker 環境中執行 Cypress 測試，解決跨平台環境差異造成的測試問題。
 ---
 
 執行這些步驟之前，你必須要先有cypress的測試目錄喔。

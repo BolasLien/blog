@@ -4,6 +4,7 @@ date: 2021-07-13 12:35:22
 tags:
 - javascript
 categories: 筆記
+description: 介紹 JavaScript 變數提升（Hoisting）的概念，理解 var、let、const 宣告前的行為差異。
 ---
 ## 變數的提升（Hoisting）
 

@@ -5,6 +5,7 @@ tags:
 - testing
 - cypress
 categories: 測試
+description: Cypress 入門筆記（上），介紹元素查詢等基礎 E2E 測試操作與常用指令。
 ---
 最近在學習測試，選擇了Cypress這個工具，如果你寫過JQuery，你對他的語法會很快上手。
 以下是研讀官方文件所記錄的筆記，有些理解可能不正確(畢竟母語不是英文)

@@ -4,6 +4,7 @@ date: 2021-12-01 16:00:25
 tags:
 - development
 categories: 軟體開發
+description: 介紹敏捷開發（Agile）的核心概念與精神，比較傳統瀑布式開發流程的差異與優劣。
 ---
 
 ## 傳統的開發流程

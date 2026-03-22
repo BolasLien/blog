@@ -5,6 +5,7 @@ tags:
 - vue
 - vuex
 categories: 筆記
+description: 解析 Vuex 中 mutations 與 actions 的設計差異，理解為什麼狀態管理需要分開這兩種寫法。
 ---
 
 一開始看不懂vuex為何要分mutation跟action兩個寫法，後來查閱了一些資料、加上問公司的前輩，雖然明白了，但還沒辦法體會。

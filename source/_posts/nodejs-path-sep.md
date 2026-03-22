@@ -4,6 +4,7 @@ date: 2022-09-15 10:54:01
 tags:
 - nodejs
 categories: 筆記
+description: 解決 Node.js 跨平台路徑分隔符號差異問題，修復從 Linux 移植到 Windows 時的路徑錯誤。
 ---
 
 最近在逐步把開發環境移到本機上，原本在 Linux 運行好好的程式，到 Windows 上都出錯了

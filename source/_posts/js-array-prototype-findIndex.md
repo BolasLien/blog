@@ -4,6 +4,7 @@ date: 2021-05-28 16:47:07
 tags:
 - javascript
 categories: 筆記
+description: 介紹 JavaScript Array.findIndex() 方法，找出陣列中第一個符合條件元素的索引值。
 ---
 
 針對陣列中的每個元素，執行callback，回傳`一個`符合條件的元素的`索引值`，否則回傳`-1`

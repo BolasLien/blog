@@ -4,6 +4,7 @@ date: 2021-02-18 11:53:15
 tags:
 - vue
 categories: 筆記
+description: 介紹 Vue.js 中父子元件之間的事件溝通機制，包含 emit 的完整用法與實作範例。
 ---
 經由子元件來觸發父件的事件
 把事件綁在父元件裡`this.$on('say-hi')`

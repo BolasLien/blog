@@ -8,6 +8,7 @@ tags:
   - AI 開發工具
   - 開發心得
 categories: claude code
+description: 記錄第一次使用 Claude Code 的完整體驗，1.5 小時就燒光 token，卻也發現 AI 輔助開發的驚人潛力。
 ---
 
 > 📌 本文為系列文「從觀望 Claude Code 到一頭栽進去」的第一篇。

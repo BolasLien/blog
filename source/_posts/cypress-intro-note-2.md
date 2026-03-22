@@ -5,6 +5,7 @@ tags:
 - testing
 - cypress
 categories: 測試
+description: Cypress 入門筆記（下），介紹斷言（Assertions）等進階 E2E 測試技巧與用法。
 ---
 這裡是下半部分的學習筆記，文章最後有一個自己的總結。
 以下是研讀官方文件所記錄的筆記，有些理解可能不正確(畢竟母語不是英文)

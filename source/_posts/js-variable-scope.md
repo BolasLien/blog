@@ -4,6 +4,7 @@ date: 2021-07-14 12:45:02
 tags:
 - javascript
 categories: 筆記
+description: 介紹 JavaScript 變數作用域的概念，了解全域（Global）與區域（Local）作用域的有效範圍。
 ---
 ## 變數的作用域（Scope）
 

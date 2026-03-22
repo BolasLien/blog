@@ -4,6 +4,7 @@ date: 2022-07-19 23:55:07
 tags:
 - 切版
 categories: 前端技術
+description: 比較 HTML img 標籤與 CSS background-image 屬性的差異，了解各自適合的使用情境。
 ---
 
 ## 使用時機

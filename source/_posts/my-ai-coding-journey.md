@@ -9,6 +9,7 @@ tags:
   - GitHub Copilot
   - Claude Code
 categories: 心得分享
+description: 記錄從 2023 年第一次使用 ChatGPT 到幾乎不手寫程式碼的 AI 輔助開發旅程與心路歷程。
 ---
 
 從 2023 年第一次用 ChatGPT，到現在幾乎不手寫程式碼，我把這段轉變寫下來了，也算是見證工程師這個職業的重心在移動的心路歷程。

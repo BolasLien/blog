@@ -4,6 +4,7 @@ date: 2021-05-27 18:06:58
 tags:
 - javascript
 categories: 筆記
+description: 介紹 JavaScript Array.slice() 方法，實現陣列資料淺拷貝（Shallow Copy）的操作範例。
 ---
 
 `拷貝`陣列的資料。

@@ -4,6 +4,7 @@ date: 2021-08-24 17:33:00
 tags:
 - javascript
 categories: 筆記
+description: 比較 JavaScript bind()、call()、apply() 三種方法的差異，並說明各自適合的使用時機。
 ---
 認識 bind, call, apply 這三個方法之前，先說說 `function` 與 `this`。
 

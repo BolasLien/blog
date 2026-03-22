@@ -5,6 +5,7 @@ tags:
 - css
 categories:
 - [筆記, css]
+description: 解析 CSS height 不同單位（px、%、vh）的差別與使用時機，避免常見排版問題。
 ---
 
 要讓`height`可以有效果，`height`的設定必須是**絕對單位（px, rem...）**。例如：

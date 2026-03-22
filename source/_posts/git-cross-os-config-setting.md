@@ -4,6 +4,7 @@ date: 2021-12-21 15:54:58
 tags:
 - git
 categories: 筆記
+description: 解決跨平台開發時，Git 未修改檔案出現換行警告（LF/CRLF）或檔案權限異動的設定方法。
 ---
 
 嘗試把一個大專案從 SVN 移到 Git 時，發現從 Windows 環境作 `git clone` 的時候，檔案會莫名奇妙的有異動，而這個異動卻從文件比對看不出有差異。

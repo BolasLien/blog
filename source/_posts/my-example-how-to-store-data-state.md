@@ -5,6 +5,7 @@ tags:
 - example
 - javascript
 categories: 筆記
+description: 分享一個具挑戰性的前端資料狀態管理案例，完整記錄解題思路與實作過程。
 ---
 
 最近剛結束一個case，是一個滿有挑戰的任務，這裡做成一個小專案來記錄自己的解題思路。

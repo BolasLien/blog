@@ -5,6 +5,7 @@ tags:
 - css
 categories:
 - [筆記, css]
+description: 詳細介紹 CSS Flexbox 的各種屬性與用法，幫助快速掌握現代響應式網頁排版技巧。
 ---
 ## Flexbox 是什麼？
 
