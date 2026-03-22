@@ -1,0 +1,27 @@
+// Font Awesome font-display: swap overrides
+// These @font-face declarations are processed before async FA CSS loads,
+// ensuring font-display: swap takes effect for icon fonts.
+
+@font-face
+  font-family: 'Font Awesome 6 Free'
+  font-weight: 900
+  font-style: normal
+  font-display: swap
+  src: url('https://use.fontawesome.com/releases/v6.0.0/webfonts/fa-solid-900.woff2') format('woff2'),
+       url('https://use.fontawesome.com/releases/v6.0.0/webfonts/fa-solid-900.woff') format('woff')
+
+@font-face
+  font-family: 'Font Awesome 6 Free'
+  font-weight: 400
+  font-style: normal
+  font-display: swap
+  src: url('https://use.fontawesome.com/releases/v6.0.0/webfonts/fa-regular-400.woff2') format('woff2'),
+       url('https://use.fontawesome.com/releases/v6.0.0/webfonts/fa-regular-400.woff') format('woff')
+
+@font-face
+  font-family: 'Font Awesome 6 Brands'
+  font-weight: 400
+  font-style: normal
+  font-display: swap
+  src: url('https://use.fontawesome.com/releases/v6.0.0/webfonts/fa-brands-400.woff2') format('woff2'),
+       url('https://use.fontawesome.com/releases/v6.0.0/webfonts/fa-brands-400.woff') format('woff')
