@@ -36,9 +36,9 @@ module.exports = class extends Component {
                 {/* Thumbnail */}
                 {cover ? <div class="card-image">
                     {index ? <a href={url_for(page.link || page.path)} class="image is-7by3">
-                        <img class="fill" src={cover} alt={page.title || cover} />
+                        <img class="fill" src={cover} alt={page.title || cover} loading="eager" />
                     </a> : <span class="image is-7by3">
-                        <img class="fill" src={cover} alt={page.title || cover} />
+                        <img class="fill" src={cover} alt={page.title || cover} loading="eager" />
                     </span>}
                 </div> : null}
                 <article class={`card-content article${'direction' in page ? ' ' + page.direction : ''}`} role="article">
