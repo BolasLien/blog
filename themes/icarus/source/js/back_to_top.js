@@ -65,7 +65,7 @@ $(document).ready(() => {
     }
 
     function isScrollUp() {
-        return $(window).scrollTop() < lastScrollTop && $(window).scrollTop() > 0;
+        return window.scrollY < lastScrollTop && window.scrollY > 0;
     }
 
     function hasLeftSidebar() {
@@ -76,59 +76,61 @@ $(document).ready(() => {
         return $rightSidebar.length > 0;
     }
 
-    function getRightSidebarBottom() {
-        if (!hasRightSidebar()) {
-            return 0;
-        }
-        return Math.max.apply(null, $rightSidebar.find('.widget').map(function() {
-            return $(this).offset().top + $(this).outerHeight(true);
-        }));
+    // Cached layout values — recalculated only on resize, not every scroll
+    let cache = {};
+
+    function updateCache() {
+        cache.rightSidebarBottom = hasRightSidebar()
+            ? Math.max.apply(null, $rightSidebar.find('.widget').map(function() {
+                const rect = this.getBoundingClientRect();
+                return rect.bottom + window.scrollY;
+            }))
+            : 0;
+        cache.buttonWidth = $button.outerWidth(true);
+        cache.buttonHeight = $button.outerHeight(true);
+        cache.mainColumnPadding = ($mainColumn.outerWidth() - $mainColumn.width()) / 2;
+        cache.mainColumnLeft = $mainColumn.offset().left;
+        cache.mainColumnRight = cache.mainColumnLeft + $mainColumn.outerWidth();
+        cache.footerTop = $footer.offset().top;
+        cache.windowWidth = window.innerWidth;
+        cache.windowHeight = window.innerHeight;
     }
 
     function getScrollTop() {
-        return $(window).scrollTop();
+        return window.scrollY;
     }
 
     function getScrollBottom() {
-        return $(window).scrollTop() + $(window).height();
-    }
-
-    function getButtonWidth() {
-        return $button.outerWidth(true);
-    }
-
-    function getButtonHeight() {
-        return $button.outerHeight(true);
+        return window.scrollY + cache.windowHeight;
     }
 
     function updateScrollTop() {
-        lastScrollTop = $(window).scrollTop();
+        lastScrollTop = window.scrollY;
     }
 
     function update() {
-        // desktop mode or tablet mode with only right sidebar enabled
         if (isDesktop() || (isTablet() && !hasLeftSidebar() && hasRightSidebar())) {
             let nextState;
-            const padding = ($mainColumn.outerWidth() - $mainColumn.width()) / 2;
-            const maxLeft = $(window).width() - getButtonWidth() - rightMargin;
-            const maxBottom = $footer.offset().top + (getButtonHeight() / 2) + bottomMargin;
-            if (getScrollTop() === 0 || getScrollBottom() < getRightSidebarBottom() + padding + getButtonHeight()) {
+            const scrollTop = getScrollTop();
+            const scrollBottom = getScrollBottom();
+            const maxLeft = cache.windowWidth - cache.buttonWidth - rightMargin;
+            const maxBottom = cache.footerTop + (cache.buttonHeight / 2) + bottomMargin;
+
+            if (scrollTop === 0 || scrollBottom < cache.rightSidebarBottom + cache.mainColumnPadding + cache.buttonHeight) {
                 nextState = state['desktop-hidden'];
-            } else if (getScrollBottom() < maxBottom) {
+            } else if (scrollBottom < maxBottom) {
                 nextState = state['desktop-visible'];
             } else {
                 nextState = Object.assign({}, state['desktop-dock'], {
-                    bottom: getScrollBottom() - maxBottom + bottomMargin
+                    bottom: scrollBottom - maxBottom + bottomMargin
                 });
             }
 
-            const left = $mainColumn.offset().left + $mainColumn.outerWidth() + padding;
             nextState = Object.assign({}, nextState, {
-                left: Math.min(left, maxLeft)
+                left: Math.min(cache.mainColumnRight + cache.mainColumnPadding, maxLeft)
             });
             applyState(nextState);
         } else {
-            // mobile and tablet mode
             if (!isScrollUp()) {
                 applyState(state['mobile-hidden']);
             } else {
@@ -138,9 +140,27 @@ $(document).ready(() => {
         }
     }
 
+    // rAF-throttled handlers to avoid long tasks
+    let rafPending = false;
+    function onScroll() {
+        if (!rafPending) {
+            rafPending = true;
+            requestAnimationFrame(() => {
+                update();
+                rafPending = false;
+            });
+        }
+    }
+
+    function onResize() {
+        updateCache();
+        update();
+    }
+
+    updateCache();
     update();
-    $(window).resize(update);
-    $(window).scroll(update);
+    $(window).resize(onResize);
+    $(window).scroll(onScroll);
 
     $('#back-to-top').on('click', () => {
         if (CSS && CSS.supports && CSS.supports('(scroll-behavior: smooth)')) {
