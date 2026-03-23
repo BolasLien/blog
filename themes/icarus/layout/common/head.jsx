@@ -72,8 +72,8 @@ module.exports = class extends Component {
 
         const language = page.lang || page.language || config.language;
         const fontCssUrl = {
-            default: fontcdn('Ubuntu:wght@400;600&family=Source+Code+Pro&display=swap', 'css2'),
-            cyberpunk: fontcdn('Oxanium:wght@300;400;600&family=Roboto+Mono&display=swap', 'css2')
+            default: fontcdn('Ubuntu:wght@400;600&family=Source+Code+Pro&display=optional', 'css2'),
+            cyberpunk: fontcdn('Oxanium:wght@300;400;600&family=Roboto+Mono&display=optional', 'css2')
         };
 
         let hlTheme, images;
@@ -197,7 +197,8 @@ module.exports = class extends Component {
             {favicon ? <link rel="icon" href={url_for(favicon)} /> : null}
             <link rel="preconnect" href="https://fonts.googleapis.com" />
             <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
-            <link rel="stylesheet" href={fontCssUrl[variant]} />
+            <link rel="preload" href={fontCssUrl[variant]} as="style" onload="this.onload=null;this.rel='stylesheet'" />
+            <noscript><link rel="stylesheet" href={fontCssUrl[variant]} /></noscript>
             <link rel="preload" href={iconcdn()} as="style" onload="this.onload=null;this.rel='stylesheet'" />
             <noscript><link rel="stylesheet" href={iconcdn()} /></noscript>
             {hlTheme ? <link rel="preload" href={cdn('highlight.js', '9.12.0', 'styles/' + hlTheme + '.css')} as="style" onload="this.onload=null;this.rel='stylesheet'" /> : null}
