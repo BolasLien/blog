@@ -21,6 +21,9 @@
     }
 
     if (typeof moment === 'function') {
+        if (config && config.locale) {
+            moment.locale(config.locale);
+        }
         $('.article-meta time').each(function() {
             $(this).text(moment($(this).attr('datetime')).fromNow());
         });
