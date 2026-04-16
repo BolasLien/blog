@@ -11,7 +11,8 @@
     "astro": "astro",
     "test": "vitest run",
     "test:watch": "vitest",
-    "verify:dates": "tsx scripts/verify-dates.mts"
+    "verify:dates": "tsx scripts/verify-dates.mts",
+    "migrate:posts": "tsx scripts/migrate-posts.mts"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.0.0",
