@@ -15,10 +15,13 @@
     "migrate:posts": "tsx scripts/migrate-posts.mts"
   },
   "dependencies": {
-    "@astrojs/sitemap": "^3.0.0",
+    "@astrojs/rss": "^4.0.18",
+    "@fontsource/noto-sans-tc": "^5.2.9",
     "astro": "^6.0.0"
   },
   "devDependencies": {
+    "@astrojs/partytown": "^2.1.7",
+    "@astrojs/sitemap": "^3.0.0",
     "@types/js-yaml": "^4.0.9",
     "@types/node": "^22.0.0",
     "gray-matter": "^4.0.3",

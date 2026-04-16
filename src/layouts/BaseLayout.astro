@@ -1,0 +1,50 @@
+---
+import '@fontsource/noto-sans-tc';
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description } = Astro.props;
+
+const SITE_NAME = 'Bolas 的開發與學習筆記';
+const finalTitle = title.includes(SITE_NAME) ? title : `${title} · ${SITE_NAME}`;
+---
+
+<!DOCTYPE html>
+<html lang="zh-TW">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>{finalTitle}</title>
+    {description && <meta name="description" content={description} />}
+    <meta property="og:title" content={finalTitle} />
+    {description && <meta property="og:description" content={description} />}
+    <meta property="og:type" content="website" />
+    <!-- GA4 with Partytown -->
+    <script type="text/partytown" async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script type="text/partytown" is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XXXXXXXXXX');
+    </script>
+  </head>
+  <body>
+    <nav>
+      <a href="/blog/">首頁</a>
+      <a href="/blog/about/">About</a>
+    </nav>
+    <main>
+      <slot />
+    </main>
+  </body>
+</html>
+
+<style is:global>
+  html,
+  body {
+    font-family: 'Noto Sans TC', sans-serif;
+  }
+</style>

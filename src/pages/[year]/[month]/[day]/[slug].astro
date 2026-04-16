@@ -1,0 +1,38 @@
+---
+import type { InferGetStaticPropsType } from 'astro';
+import { getCollection, render } from 'astro:content';
+import BaseLayout from '../../../../layouts/BaseLayout.astro';
+import { formatDateParams, formatTaipeiIso } from '../../../../utils/dates';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('posts');
+  return posts.map((post) => {
+    const { year, month, day } = formatDateParams(post.data.date);
+    const slug = post.id;
+    return {
+      params: { year, month, day, slug },
+      props: { post },
+    };
+  });
+}
+
+type Props = InferGetStaticPropsType<typeof getStaticPaths>;
+const { post } = Astro.props as Props;
+const { Content } = await render(post);
+const { year, month, day } = formatDateParams(post.data.date);
+---
+
+<BaseLayout title={post.data.title} description={post.data.description}>
+  <article>
+    <header>
+      <h1>{post.data.title}</h1>
+      <time datetime={formatTaipeiIso(post.data.date)}>
+        {year}-{month}-{day}
+      </time>
+      {post.data.tags.length > 0 && (
+        <p class="tags">{post.data.tags.join(', ')}</p>
+      )}
+    </header>
+    <Content />
+  </article>
+</BaseLayout>
