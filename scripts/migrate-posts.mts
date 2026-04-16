@@ -21,6 +21,7 @@ import { renameSlug } from './migrate-posts/rename-slug.ts';
 import { normalizeCategories } from './migrate-posts/normalize-categories.ts';
 import { normalizeTags } from './migrate-posts/normalize-tags.ts';
 import { stripMoreTag } from './migrate-posts/strip-more-tag.ts';
+import { extractDescription } from './migrate-posts/extract-description.ts';
 
 const SOURCE_DIR = 'source/_posts';
 const OUTPUT_DIR = 'src/content/posts';
@@ -91,6 +92,7 @@ async function runPipeline(posts: MigratedPost[]): Promise<MigratedPost[]> {
     normalizeCategories,
     normalizeTags,
     stripMoreTag,
+    extractDescription,
     // extractDescription,  ← Task 7
     // normalizeTags,       ← Task 5
     // stripMoreTag,        ← Task 6
@@ -119,6 +121,9 @@ function printDryRunReport(posts: MigratedPost[]): void {
   console.log('');
   for (const p of posts) {
     console.log(`- ${p.slug}`);
+    for (const w of p.warnings) {
+      console.log(`  WARN: ${w}`);
+    }
   }
 }
 
