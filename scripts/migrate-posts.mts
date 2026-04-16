@@ -25,11 +25,13 @@ const { values } = parseArgs({
   options: {
     'dry-run': { type: 'boolean', default: false },
     'skip-download': { type: 'boolean', default: false },
+    'audit-categories': { type: 'boolean', default: false },
   },
 });
 
 const DRY_RUN = values['dry-run'] ?? false;
 const SKIP_DOWNLOAD = values['skip-download'] ?? false;
+const AUDIT_CATEGORIES = values['audit-categories'] ?? false;
 
 function loadSourcePosts(): MigratedPost[] {
   const entries = readdirSync(SOURCE_DIR);
@@ -113,8 +115,33 @@ function printDryRunReport(posts: MigratedPost[]): void {
   }
 }
 
+function auditCategories(posts: MigratedPost[]): void {
+  const seen = new Map<string, string[]>();
+  for (const p of posts) {
+    const rawCat = p.frontmatter.categories;
+    const key = JSON.stringify(rawCat ?? null);
+    if (!seen.has(key)) seen.set(key, []);
+    seen.get(key)!.push(p.slug);
+  }
+  console.log(`[audit] 共 ${posts.length} 篇 post，${seen.size} 種 category shape\n`);
+  const sortedKeys = [...seen.keys()].sort();
+  for (const key of sortedKeys) {
+    const slugs = seen.get(key)!;
+    console.log(`  shape: ${key}`);
+    console.log(`  count: ${slugs.length}`);
+    console.log(`  examples: ${slugs.slice(0, 3).join(', ')}${slugs.length > 3 ? ', ...' : ''}`);
+    console.log('');
+  }
+}
+
 // Main
 const posts = loadSourcePosts();
+
+if (AUDIT_CATEGORIES) {
+  auditCategories(posts);
+  process.exit(0);
+}
+
 const transformed = await runPipeline(posts);
 
 if (DRY_RUN) {
