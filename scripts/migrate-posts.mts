@@ -20,6 +20,7 @@ import type { MigratedPost } from './migrate-posts/types.ts';
 import { renameSlug } from './migrate-posts/rename-slug.ts';
 import { normalizeCategories } from './migrate-posts/normalize-categories.ts';
 import { normalizeTags } from './migrate-posts/normalize-tags.ts';
+import { stripMoreTag } from './migrate-posts/strip-more-tag.ts';
 
 const SOURCE_DIR = 'source/_posts';
 const OUTPUT_DIR = 'src/content/posts';
@@ -89,7 +90,8 @@ async function runPipeline(posts: MigratedPost[]): Promise<MigratedPost[]> {
     renameSlug,
     normalizeCategories,
     normalizeTags,
-    // stripMoreTag,        ← Task 6
+    stripMoreTag,
+    // extractDescription,  ← Task 7
     // normalizeTags,       ← Task 5
     // stripMoreTag,        ← Task 6
     // extractDescription,  ← Task 7
