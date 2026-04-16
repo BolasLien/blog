@@ -15,6 +15,7 @@
     "migrate:posts": "tsx scripts/migrate-posts.mts"
   },
   "dependencies": {
+    "@astrojs/rss": "^4.0.18",
     "@astrojs/sitemap": "^3.0.0",
     "@fontsource/noto-sans-tc": "^5.2.9",
     "astro": "^6.0.0"
