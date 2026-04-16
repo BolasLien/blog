@@ -2,7 +2,7 @@
 import type { CollectionEntry } from 'astro:content';
 import { getCollection, render } from 'astro:content';
 import BaseLayout from '../../../../layouts/BaseLayout.astro';
-import { formatDateParams } from '../../../../utils/dates';
+import { formatDateParams, formatTaipeiIso } from '../../../../utils/dates';
 
 export async function getStaticPaths() {
   const posts = await getCollection('posts');
@@ -25,7 +25,7 @@ const { year, month, day } = formatDateParams(post.data.date);
   <article>
     <header>
       <h1>{post.data.title}</h1>
-      <time datetime={post.data.date.toISOString()}>
+      <time datetime={formatTaipeiIso(post.data.date)}>
         {year}-{month}-{day}
       </time>
       {post.data.tags.length > 0 && (

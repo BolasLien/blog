@@ -1,6 +1,6 @@
 ---
 import { getCollection } from 'astro:content';
-import { formatDateParams } from '../utils/dates';
+import { formatDateParams, formatTaipeiIso } from '../utils/dates';
 import BaseLayout from '../layouts/BaseLayout.astro';
 
 const posts = await getCollection('posts');
@@ -16,7 +16,7 @@ const sorted = posts.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf(
       return (
         <li>
           <a href={href}>{post.data.title}</a>
-          <time datetime={post.data.date.toISOString()}>{year}-{month}-{day}</time>
+          <time datetime={formatTaipeiIso(post.data.date)}>{year}-{month}-{day}</time>
           <p>{post.data.description}</p>
           {post.data.tags.length > 0 && <p class="tags">{post.data.tags.join(', ')}</p>}
         </li>
