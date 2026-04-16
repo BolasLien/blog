@@ -17,6 +17,7 @@ import { join, resolve } from 'node:path';
 import matter from 'gray-matter';
 import { parseFrontmatterDate } from '../src/utils/dates.ts';
 import type { MigratedPost } from './migrate-posts/types.ts';
+import { renameSlug } from './migrate-posts/rename-slug.ts';
 
 const SOURCE_DIR = 'source/_posts';
 const OUTPUT_DIR = 'src/content/posts';
@@ -83,7 +84,7 @@ type Transform = (p: MigratedPost) => MigratedPost | Promise<MigratedPost>;
 
 async function runPipeline(posts: MigratedPost[]): Promise<MigratedPost[]> {
   const transforms: Transform[] = [
-    // renameSlug,          ← Task 3
+    renameSlug,
     // normalizeCategories, ← Task 4
     // normalizeTags,       ← Task 5
     // stripMoreTag,        ← Task 6
