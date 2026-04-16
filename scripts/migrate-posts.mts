@@ -26,6 +26,7 @@ import { convertCodeblock } from './migrate-posts/convert-codeblock.ts';
 import { stripHackmdFence } from './migrate-posts/strip-hackmd-fence.ts';
 import { fixHardcodeUrl } from './migrate-posts/fix-hardcode-url.ts';
 import { downloadImgur } from './migrate-posts/download-imgur.ts';
+import { collectSiblingAssets, cleanOutputDir, writePost } from './migrate-posts/assemble-output.ts';
 
 const SOURCE_DIR = 'source/_posts';
 const OUTPUT_DIR = 'src/content/posts';
@@ -100,7 +101,7 @@ async function runPipeline(posts: MigratedPost[]): Promise<MigratedPost[]> {
     convertCodeblock,
     stripHackmdFence,
     fixHardcodeUrl,
-    // collectSiblingAssets,← Task 12
+    collectSiblingAssets,  // ← new
     (p) => downloadImgur(p, { skipDownload: SKIP_DOWNLOAD }),
   ];
 
@@ -119,10 +120,24 @@ function printDryRunReport(posts: MigratedPost[]): void {
   console.log(`[dry-run] 共載入 ${posts.length} 篇 post`);
   console.log(`[dry-run] SKIP_DOWNLOAD=${SKIP_DOWNLOAD}`);
   console.log('');
+
+  const totalAssets = posts.reduce((sum, p) => sum + p.assets.size, 0);
+  const totalWarnings = posts.reduce((sum, p) => sum + p.warnings.length, 0);
+  console.log(`[dry-run] 總共 ${totalAssets} 個 asset 會被複製、${totalWarnings} 條 warning`);
+  console.log('');
+
   for (const p of posts) {
-    console.log(`- ${p.slug}`);
-    for (const w of p.warnings) {
-      console.log(`  WARN: ${w}`);
+    const extras: string[] = [];
+    if (p.assets.size > 0) extras.push(`${p.assets.size} assets`);
+    if (p.warnings.length > 0) extras.push(`${p.warnings.length} warnings`);
+    const suffix = extras.length > 0 ? ` [${extras.join(', ')}]` : '';
+    console.log(`- ${p.slug}${suffix}`);
+  }
+
+  if (totalWarnings > 0) {
+    console.log('\n[warnings]');
+    for (const p of posts) {
+      for (const w of p.warnings) console.log(`  ${w}`);
     }
   }
 }
@@ -161,4 +176,16 @@ if (DRY_RUN) {
   process.exit(0);
 }
 
-console.log(`[migrate] 共 ${transformed.length} 篇 post — 寫檔邏輯未實作 (Task 12)`);
+// 實際寫檔
+cleanOutputDir();
+for (const post of transformed) {
+  writePost(post);
+}
+console.log(`[migrate] 寫入 ${transformed.length} 篇 post 到 ${OUTPUT_DIR}`);
+
+// 列出所有 warnings 給 Bolas review
+const allWarnings = transformed.flatMap((p) => p.warnings);
+if (allWarnings.length > 0) {
+  console.log(`\n[warnings] 共 ${allWarnings.length} 條：`);
+  for (const w of allWarnings) console.log(`  ${w}`);
+}
