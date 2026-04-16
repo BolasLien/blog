@@ -16,7 +16,7 @@ export function formatDateParams(date: Date): DateParams {
     day: '2-digit',
   }).formatToParts(date);
 
-  const pick = (type: Intl.DateTimeFormatPartTypes) => {
+  const pick = (type: 'year' | 'month' | 'day') => {
     const part = parts.find((p) => p.type === type);
     if (!part) throw new Error(`formatDateParams: 找不到 part ${type}`);
     return part.value;

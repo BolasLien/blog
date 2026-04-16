@@ -29,7 +29,7 @@ const mismatches: string[] = [];
 
 // 使用 JSON_SCHEMA 讓 gray-matter 不自動把 YAML date string 轉成 Date 物件
 // （預設行為會把無 TZ 的 date 當 UTC 解析，造成台北時間 +8h 後跨日）
-const matterOpts: matter.GrayMatterOption<string, matter.GrayMatterOption<string, never>> = {
+const matterOpts = {
   engines: {
     yaml: (s: string) => yaml.load(s, { schema: yaml.JSON_SCHEMA }) as object,
   },
