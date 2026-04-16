@@ -25,6 +25,7 @@ import { extractDescription } from './migrate-posts/extract-description.ts';
 import { convertCodeblock } from './migrate-posts/convert-codeblock.ts';
 import { stripHackmdFence } from './migrate-posts/strip-hackmd-fence.ts';
 import { fixHardcodeUrl } from './migrate-posts/fix-hardcode-url.ts';
+import { downloadImgur } from './migrate-posts/download-imgur.ts';
 
 const SOURCE_DIR = 'source/_posts';
 const OUTPUT_DIR = 'src/content/posts';
@@ -100,7 +101,7 @@ async function runPipeline(posts: MigratedPost[]): Promise<MigratedPost[]> {
     stripHackmdFence,
     fixHardcodeUrl,
     // collectSiblingAssets,← Task 12
-    // downloadImgur,       ← Task 11（async）
+    (p) => downloadImgur(p, { skipDownload: SKIP_DOWNLOAD }),
   ];
 
   const result: MigratedPost[] = [];
