@@ -6,3 +6,10 @@ node_modules/
 public/
 .deploy*/
 .worktrees/
+
+# Astro
+dist/
+.astro/
+.env
+.env.*
+!.env.example
