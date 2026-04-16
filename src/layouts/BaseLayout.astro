@@ -1,4 +1,6 @@
 ---
+import '@fontsource/noto-sans-tc';
+
 interface Props {
   title: string;
   description?: string;
@@ -31,3 +33,10 @@ const finalTitle = title.includes(SITE_NAME) ? title : `${title} · ${SITE_NAME}
     </main>
   </body>
 </html>
+
+<style is:global>
+  html,
+  body {
+    font-family: 'Noto Sans TC', sans-serif;
+  }
+</style>
