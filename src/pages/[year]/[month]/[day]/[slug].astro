@@ -6,10 +6,9 @@ import { formatDateParams } from '../../../../utils/dates';
 
 export async function getStaticPaths() {
   const posts = await getCollection('posts');
-return posts.map((post) => {
+  return posts.map((post) => {
     const { year, month, day } = formatDateParams(post.data.date);
-    // slug 從 post.id 萃取（移除 /index.md 後綴若有）
-    const slug = post.id.replace(/\/index\.md$/, '');
+    const slug = post.id;
     return {
       params: { year, month, day, slug },
       props: { post },
