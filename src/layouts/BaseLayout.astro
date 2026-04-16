@@ -1,0 +1,33 @@
+---
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description } = Astro.props;
+
+const SITE_NAME = 'Bolas 的開發與學習筆記';
+const finalTitle = title.includes(SITE_NAME) ? title : `${title} · ${SITE_NAME}`;
+---
+
+<!DOCTYPE html>
+<html lang="zh-TW">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>{finalTitle}</title>
+    {description && <meta name="description" content={description} />}
+    <meta property="og:title" content={finalTitle} />
+    {description && <meta property="og:description" content={description} />}
+    <meta property="og:type" content="website" />
+  </head>
+  <body>
+    <nav>
+      <a href="/blog/">首頁</a>
+      <a href="/blog/about/">About</a>
+    </nav>
+    <main>
+      <slot />
+    </main>
+  </body>
+</html>

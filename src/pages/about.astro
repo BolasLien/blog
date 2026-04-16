@@ -1,36 +1,26 @@
 ---
-// P2 手動 inline from source/about/index.md
-// P3 會統一 layout
+import BaseLayout from '../layouts/BaseLayout.astro';
 ---
-<!DOCTYPE html>
-<html lang="zh-TW">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>About · Bolas 的開發與學習筆記</title>
-  </head>
-  <body>
-    <main>
-      <h1>About</h1>
 
-      <h2>關於我</h2>
-      <p>
-        嗨，我是連小艾，一名前端工程師。<br />
-        熟悉的技能為 Scss/Less, Vue, Webpack, Gulp, Git, Linux command line（使用過 docker, cypress）。
-      </p>
-      <p>
-        我喜歡團隊協作的環境，視團隊為優先，當我協助提升團隊工作效率、或是引導團隊解決難題的時候，我會感到很有成就感。<br />
-        若想要了解更多我的經歷，可以參考<a href="https://www.linkedin.com/in/bolaslien/">我的 Linkedin</a>。
-      </p>
+<BaseLayout title="About">
+  <h1>About</h1>
 
-      <h2>關於部落格</h2>
-      <p>這裡記錄了我的技術學習筆記、踩過的坑，以及軟體開發心得筆記。</p>
+  <h2>關於我</h2>
+  <p>
+    嗨，我是連小艾，一名前端工程師。<br />
+    熟悉的技能為 Scss/Less, Vue, Webpack, Gulp, Git, Linux command line（使用過 docker, cypress）。
+  </p>
+  <p>
+    我喜歡團隊協作的環境，視團隊為優先，當我協助提升團隊工作效率、或是引導團隊解決難題的時候，我會感到很有成就感。<br />
+    若想要了解更多我的經歷，可以參考<a href="https://www.linkedin.com/in/bolaslien/">我的 Linkedin</a>。
+  </p>
 
-      <h2>聯絡方式</h2>
-      <ul>
-        <li><a href="https://www.linkedin.com/in/bolaslien/">Linkedin</a></li>
-        <li><a href="mailto:bolaslien@gmail.com">Email</a></li>
-      </ul>
-    </main>
-  </body>
-</html>
+  <h2>關於部落格</h2>
+  <p>這裡記錄了我的技術學習筆記、踩過的坑，以及軟體開發心得筆記。</p>
+
+  <h2>聯絡方式</h2>
+  <ul>
+    <li><a href="https://www.linkedin.com/in/bolaslien/">Linkedin</a></li>
+    <li><a href="mailto:bolaslien@gmail.com">Email</a></li>
+  </ul>
+</BaseLayout>
