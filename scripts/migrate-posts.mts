@@ -23,6 +23,7 @@ import { normalizeTags } from './migrate-posts/normalize-tags.ts';
 import { stripMoreTag } from './migrate-posts/strip-more-tag.ts';
 import { extractDescription } from './migrate-posts/extract-description.ts';
 import { convertCodeblock } from './migrate-posts/convert-codeblock.ts';
+import { stripHackmdFence } from './migrate-posts/strip-hackmd-fence.ts';
 
 const SOURCE_DIR = 'source/_posts';
 const OUTPUT_DIR = 'src/content/posts';
@@ -95,6 +96,7 @@ async function runPipeline(posts: MigratedPost[]): Promise<MigratedPost[]> {
     stripMoreTag,
     extractDescription,
     convertCodeblock,
+    stripHackmdFence,
     // extractDescription,  ← Task 7
     // normalizeTags,       ← Task 5
     // stripMoreTag,        ← Task 6
