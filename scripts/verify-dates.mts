@@ -7,7 +7,7 @@ import { readdirSync, readFileSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
 import matter from 'gray-matter';
 import yaml from 'js-yaml';
-import { formatDateParams } from '../src/utils/dates.ts';
+import { formatDateParams, parseFrontmatterDate } from '../src/utils/dates.ts';
 
 const POSTS_DIR = 'source/_posts';
 const LEGACY_DATES_FILE = 'scripts/legacy-public-dates.txt';
@@ -44,16 +44,10 @@ for (const file of files) {
     continue;
   }
 
-  // frontmatter 的 date 可能是 "2020-08-28 13:55:28"（無 TZ）或已經有 offset
-  // 視為台北時間處理：若無 offset 就補 +08:00
-  const rawStr = typeof data.date === 'string' ? data.date : data.date.toISOString();
-  const isoish = rawStr.replace(' ', 'T');
-  const hasTz = /[+-]\d{2}:?\d{2}$|Z$/.test(isoish);
-  const normalized = hasTz ? isoish : `${isoish}+08:00`;
-  const date = new Date(normalized);
+  const date = parseFrontmatterDate(data.date);
 
   if (Number.isNaN(date.getTime())) {
-    mismatches.push(`[INVALID DATE] ${file}: ${rawStr}`);
+    mismatches.push(`[INVALID DATE] ${file}: ${String(data.date)}`);
     continue;
   }
 
