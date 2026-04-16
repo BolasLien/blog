@@ -1,7 +1,7 @@
 # Hexo → Astro 遷移設計
 
 - **日期**：2026-04-14
-- **狀態**：P1 完成 — 進入 P2（內容遷移）
+- **狀態**：P2 完成 — 進入 P3（routing + layouts + fonts）
 - **作者**：Bolas Lien（與 Claude 協作）
 
 ## 背景
