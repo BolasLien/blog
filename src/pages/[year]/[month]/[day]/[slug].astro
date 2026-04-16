@@ -1,5 +1,5 @@
 ---
-import type { CollectionEntry } from 'astro:content';
+import type { InferGetStaticPropsType } from 'astro';
 import { getCollection, render } from 'astro:content';
 import BaseLayout from '../../../../layouts/BaseLayout.astro';
 import { formatDateParams, formatTaipeiIso } from '../../../../utils/dates';
@@ -16,7 +16,8 @@ export async function getStaticPaths() {
   });
 }
 
-const { post } = Astro.props as { post: CollectionEntry<'posts'> };
+type Props = InferGetStaticPropsType<typeof getStaticPaths>;
+const { post } = Astro.props as Props;
 const { Content } = await render(post);
 const { year, month, day } = formatDateParams(post.data.date);
 ---
