@@ -1,0 +1,25 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="找不到頁面" description="404 - 找不到頁面">
+  <section class="not-found">
+    <h1>404</h1>
+    <p>你來到了一個荒蕪之地，這個頁面不存在或已被移除。</p>
+    <p>
+      <a href="/blog/">回首頁</a>
+      <a href="/blog/tags/">查看所有標籤</a>
+    </p>
+  </section>
+</BaseLayout>
+
+<style>
+  .not-found {
+    text-align: center;
+    padding: 4rem 1rem;
+  }
+  .not-found h1 {
+    font-size: 4rem;
+    margin: 0;
+  }
+</style>
