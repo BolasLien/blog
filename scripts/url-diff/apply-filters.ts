@@ -12,6 +12,28 @@ const CHINESE_SLUG_DATES: ReadonlyArray<[string, string]> = [
   ['/blog/2020/11/02/', 'HTML-把header做成template'],
 ];
 
+// Hexo tag URL case/format: P2 lowercased tags (+ space in multi-word), 舊 URL 無法對上
+const HEXO_CASED_TAG_URLS = new Set([
+  '/blog/tags/AI-Agents/',
+  '/blog/tags/AI-Coding/',
+  '/blog/tags/AI-輔助開發/',
+  '/blog/tags/AI-開發工具/',
+  '/blog/tags/AI協作/',
+  '/blog/tags/ChatGPT/',
+  '/blog/tags/Claude-Code/',
+  '/blog/tags/Claude/',
+  '/blog/tags/Codex/',
+  '/blog/tags/Express/',
+  '/blog/tags/GitHub-Copilot/',
+  '/blog/tags/HTML/',
+  '/blog/tags/Hexo/',
+  '/blog/tags/Ownership/',
+]);
+// P2 tag rename: 前端開發 → 前端技術（intentional content decision）
+const RENAMED_TAG_URLS = new Set([
+  '/blog/tags/前端開發/',
+]);
+
 function isChineseSlugPost(url: string): boolean {
   return CHINESE_SLUG_DATES.some(([prefix, slug]) => url === `${prefix}${slug}/`);
 }
@@ -39,6 +61,8 @@ export function applyAcceptedLossFilters(
       const tag = url.replace(/^\/blog\/tags\//, '').replace(/\/$/, '');
       if (hasChineseChar(tag)) continue;
     }
+    if (HEXO_CASED_TAG_URLS.has(url)) continue;
+    if (RENAMED_TAG_URLS.has(url)) continue;
     result.add(url);
   }
   return result;

@@ -52,7 +52,7 @@ describe('applyAcceptedLossFilters', () => {
 
   it('chineseTagEncoding = "encoded" 時濾掉中文 tag URL', () => {
     const input = new Set([
-      '/blog/tags/前端開發/',
+      '/blog/tags/前端技術/',
       '/blog/tags/javascript/',
     ]);
     const result = applyAcceptedLossFilters(input, { chineseTagEncoding: 'encoded' });
@@ -62,7 +62,7 @@ describe('applyAcceptedLossFilters', () => {
 
   it('chineseTagEncoding = "keep" 時保留中文 tag URL', () => {
     const input = new Set([
-      '/blog/tags/前端開發/',
+      '/blog/tags/前端技術/',
       '/blog/tags/javascript/',
     ]);
     const result = applyAcceptedLossFilters(input, { chineseTagEncoding: 'keep' });
@@ -79,5 +79,28 @@ describe('applyAcceptedLossFilters', () => {
     ]);
     const result = applyAcceptedLossFilters(input, { chineseTagEncoding: 'keep' });
     expect(result.size).toBe(5);
+  });
+
+  it('濾掉 Hexo-cased tag URL（P2 lowercased）', () => {
+    const input = new Set([
+      '/blog/tags/AI-Coding/',
+      '/blog/tags/Claude-Code/',
+      '/blog/tags/ChatGPT/',
+      '/blog/tags/HTML/',
+      '/blog/tags/javascript/', // 小寫要保留
+    ]);
+    const result = applyAcceptedLossFilters(input, { chineseTagEncoding: 'keep' });
+    expect(result.size).toBe(1);
+    expect(result.has('/blog/tags/javascript/')).toBe(true);
+  });
+
+  it('濾掉 P2 renamed tag URL（前端開發 → 前端技術）', () => {
+    const input = new Set([
+      '/blog/tags/前端開發/',
+      '/blog/tags/前端技術/', // 現有 tag 要保留
+    ]);
+    const result = applyAcceptedLossFilters(input, { chineseTagEncoding: 'keep' });
+    expect(result.size).toBe(1);
+    expect(result.has('/blog/tags/前端技術/')).toBe(true);
   });
 });
