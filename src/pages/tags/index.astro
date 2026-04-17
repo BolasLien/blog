@@ -1,0 +1,34 @@
+---
+import { getCollection } from 'astro:content';
+import { getAllTags } from '../../utils/tags';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const posts = await getCollection('posts');
+const tags = getAllTags(posts);
+---
+
+<BaseLayout title="標籤" description="所有文章標籤">
+  <h1>標籤</h1>
+  <ul class="tag-list">
+    {tags.map(({ tag, count }) => (
+      <li>
+        <a href={`/blog/tags/${tag}/`}>{tag}</a>
+        <span class="count">({count})</span>
+      </li>
+    ))}
+  </ul>
+</BaseLayout>
+
+<style>
+  .tag-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1rem;
+  }
+  .count {
+    color: #888;
+    margin-left: 0.25rem;
+  }
+</style>

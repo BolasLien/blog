@@ -2,6 +2,7 @@
 title: Javascript Array findIndex() 方法
 date: '2021-05-28T16:47:07+08:00'
 description: 介紹 JavaScript Array.findIndex() 方法，找出陣列中第一個符合條件元素的索引值。
+slug: js-array-prototype-findIndex
 tags:
   - javascript
 ---

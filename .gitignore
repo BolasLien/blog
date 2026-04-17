@@ -13,3 +13,7 @@ dist/
 .env
 .env.*
 !.env.example
+
+# Tooling local state
+.serena/
+.tmp/

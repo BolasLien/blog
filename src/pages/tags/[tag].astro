@@ -1,0 +1,37 @@
+---
+import { getCollection } from 'astro:content';
+import type { GetStaticPaths, InferGetStaticPropsType } from 'astro';
+import { getAllTags, getPostsByTag } from '../../utils/tags';
+import { formatDateParams, formatTaipeiIso } from '../../utils/dates';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+export const getStaticPaths = (async () => {
+  const posts = await getCollection('posts');
+  const tags = getAllTags(posts);
+  return tags.map(({ tag }) => ({
+    params: { tag },
+    props: { tag, posts: getPostsByTag(posts, tag) },
+  }));
+}) satisfies GetStaticPaths;
+
+type Props = InferGetStaticPropsType<typeof getStaticPaths>;
+const { tag, posts } = Astro.props as Props;
+---
+
+<BaseLayout title={`標籤：${tag}`} description={`標籤「${tag}」的所有文章`}>
+  <h1>標籤：{tag}</h1>
+  <p>{posts.length} 篇文章</p>
+  <ul>
+    {posts.map((post) => {
+      const { year, month, day } = formatDateParams(post.data.date);
+      const href = `/blog/${year}/${month}/${day}/${post.id}/`;
+      return (
+        <li>
+          <a href={href}>{post.data.title}</a>
+          <time datetime={formatTaipeiIso(post.data.date)}>{year}-{month}-{day}</time>
+          {post.data.description && <p>{post.data.description}</p>}
+        </li>
+      );
+    })}
+  </ul>
+</BaseLayout>

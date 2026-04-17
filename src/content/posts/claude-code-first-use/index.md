@@ -12,7 +12,7 @@ tags:
 
 > 📌 本文為系列文「從觀望 Claude Code 到一頭栽進去」的第一篇。
 > 系列將分享我從觀望到愛不釋手的 Claude Code 使用心得，包括省 token、優化流程、寫 MR、產出技術文件與工具比較。
-> 👉 [完整系列文章列表請點這裡](/blog/categories/claude-code/)
+> 👉 [完整系列文章列表請點這裡](/blog/tags/claude/)
 
 
 原本買了保哥的課程：[AI 程式設計代理人開發全攻略：從入門到實戰](https://learn.duotify.com/courses/openai-codex-cli/refer/IQBSEO43)，跟完課程的 Claude Code 直播後，我其實還是有點猶豫要不要再多花一筆錢訂閱 Claude Pro。不過觀察到身邊的免費仔們紛紛開始課金，我就想：「嗯，好吧，那我也刷看看一個月 20 鎂的訂閱費。」

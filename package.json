@@ -12,7 +12,10 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "verify:dates": "tsx scripts/verify-dates.mts",
-    "migrate:posts": "tsx scripts/migrate-posts.mts"
+    "migrate:posts": "tsx scripts/migrate-posts.mts",
+    "audit:links": "tsx scripts/audit-links.mts",
+    "audit:url-diff": "tsx scripts/url-diff.mts",
+    "audit:all": "npm run audit:links && npm run audit:url-diff --"
   },
   "dependencies": {
     "@astrojs/rss": "^4.0.18",
@@ -26,6 +29,7 @@
     "@types/node": "^22.0.0",
     "gray-matter": "^4.0.3",
     "js-yaml": "^4.1.1",
+    "node-html-parser": "^7.1.0",
     "tsx": "^4.19.0",
     "typescript": "^5.7.0",
     "vitest": "^3.0.0"
