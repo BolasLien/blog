@@ -17,3 +17,4 @@ dist/
 # Tooling local state
 .serena/
 .tmp/
+.gstack/
