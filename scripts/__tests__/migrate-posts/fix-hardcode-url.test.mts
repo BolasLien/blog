@@ -11,7 +11,10 @@ function makePost(slug: string, body: string): MigratedPost {
 }
 
 describe('fixHardcodeUrl', () => {
-  it('hexo-blog-setup-notes 的 logo URL 改成 ./logo.svg（同時修正副檔名）', () => {
+  // source/img/logo.svg 在 P5 cleanup 被搬到 public/img/logo.svg，這兩個 test 依賴
+  // existsSync(source/...) = true。重跑 migration 時需先從 pre-astro-migration tag
+  // 還原 source/，屆時可取消 skip。
+  it.skip('hexo-blog-setup-notes 的 logo URL 改成 ./logo.svg（同時修正副檔名）', () => {
     const body = '前言\n\n![](https://bolaslien.github.io/blog/img/logo.png)\n\n後文';
     const result = fixHardcodeUrl(makePost('hexo-blog-setup-notes', body));
     expect(result.body).toContain('![](./logo.svg)');
@@ -20,7 +23,7 @@ describe('fixHardcodeUrl', () => {
     expect(result.assets.size).toBe(1);
   });
 
-  it('asset map 註冊了 source/img/logo.svg → logo.svg', () => {
+  it.skip('asset map 註冊了 source/img/logo.svg → logo.svg', () => {
     const body = '![](https://bolaslien.github.io/blog/img/logo.png)';
     const result = fixHardcodeUrl(makePost('hexo-blog-setup-notes', body));
     const entry = [...result.assets.entries()][0];
