@@ -10,14 +10,14 @@ export async function GET(context: APIContext) {
   return rss({
     title: "Bolas 的開發與學習筆記",
     description: "前端工程師的技術學習筆記、踩過的坑，以及軟體開發心得",
-    site: context.site!,
+    site: new URL(import.meta.env.BASE_URL, context.site!).href,
     items: sorted.map((post) => {
       const { year, month, day } = formatDateParams(post.data.date);
       return {
         title: post.data.title,
         pubDate: post.data.date,
         description: post.data.description,
-        link: `/blog/${year}/${month}/${day}/${post.id}/`,
+        link: `${year}/${month}/${day}/${post.id}/`,
       };
     }),
     customData: `<language>zh-tw</language>`,

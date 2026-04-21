@@ -22,7 +22,7 @@ const { Content } = await render(post);
 const { year, month, day } = formatDateParams(post.data.date);
 ---
 
-<BaseLayout title={post.data.title} description={post.data.description}>
+<BaseLayout title={post.data.title} description={post.data.description} ogType="article">
   <article>
     <header>
       <h1>{post.data.title}</h1>

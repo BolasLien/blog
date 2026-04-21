@@ -4,12 +4,14 @@ import '@fontsource/noto-sans-tc';
 interface Props {
   title: string;
   description?: string;
+  ogType?: 'website' | 'article';
 }
 
-const { title, description } = Astro.props;
+const { title, description, ogType = 'website' } = Astro.props;
 
 const SITE_NAME = 'Bolas 的開發與學習筆記';
 const finalTitle = title.includes(SITE_NAME) ? title : `${title} · ${SITE_NAME}`;
+const OG_IMAGE = new URL('/blog/img/og_image.png', Astro.site).href;
 ---
 
 <!DOCTYPE html>
@@ -17,11 +19,14 @@ const finalTitle = title.includes(SITE_NAME) ? title : `${title} · ${SITE_NAME}
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="icon" type="image/x-icon" href="/blog/favicon.ico" />
     <title>{finalTitle}</title>
     {description && <meta name="description" content={description} />}
     <meta property="og:title" content={finalTitle} />
     {description && <meta property="og:description" content={description} />}
-    <meta property="og:type" content="website" />
+    <meta property="og:type" content={ogType} />
+    <meta property="og:url" content={Astro.url.href} />
+    <meta property="og:image" content={OG_IMAGE} />
     <!-- GA4 with Partytown -->
     <script type="text/partytown" async src="https://www.googletagmanager.com/gtag/js?id=G-SG50KRG586"></script>
     <script type="text/partytown" is:inline>
