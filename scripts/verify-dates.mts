@@ -1,19 +1,20 @@
 #!/usr/bin/env tsx
 /**
- * 驗證每篇 Hexo post 的 frontmatter date 套用 formatDateParams 後
+ * 驗證每篇 post 的 frontmatter date 套用 formatDateParams 後
  * 對應的 year/month/day 都能在 legacy/hexo-public 日期目錄清單中找到。
+ * 若有 drift，代表 URL 路徑跟舊站不相容，可能造成 404。
  */
-import { readdirSync, readFileSync, existsSync } from 'node:fs';
+import { readdirSync, readFileSync, existsSync, statSync } from 'node:fs';
 import { join } from 'node:path';
 import matter from 'gray-matter';
 import yaml from 'js-yaml';
 import { formatDateParams, parseFrontmatterDate } from '../src/utils/dates.ts';
 
-const POSTS_DIR = 'source/_posts';
+const POSTS_DIR = 'src/content/posts';
 const LEGACY_DATES_FILE = 'scripts/legacy-public-dates.txt';
 
 if (!existsSync(LEGACY_DATES_FILE)) {
-  console.error(`ERROR: 找不到 ${LEGACY_DATES_FILE}（應該在 Task 1 Step 1.5 產生）`);
+  console.error(`ERROR: 找不到 ${LEGACY_DATES_FILE}`);
   process.exit(2);
 }
 
@@ -24,7 +25,10 @@ const legacyDates = new Set(
     .filter(Boolean),
 );
 
-const files = readdirSync(POSTS_DIR).filter((f) => f.endsWith('.md'));
+const files = readdirSync(POSTS_DIR)
+  .filter((entry) => statSync(join(POSTS_DIR, entry)).isDirectory())
+  .map((slug) => ({ slug, path: join(POSTS_DIR, slug, 'index.md') }))
+  .filter((e) => existsSync(e.path));
 const mismatches: string[] = [];
 
 // 使用 JSON_SCHEMA 讓 gray-matter 不自動把 YAML date string 轉成 Date 物件
@@ -35,19 +39,19 @@ const matterOpts = {
   },
 };
 
-for (const file of files) {
-  const raw = readFileSync(join(POSTS_DIR, file), 'utf-8');
+for (const entry of files) {
+  const raw = readFileSync(entry.path, 'utf-8');
   const { data } = matter(raw, matterOpts);
 
   if (!data.date) {
-    mismatches.push(`[NO DATE] ${file}`);
+    mismatches.push(`[NO DATE] ${entry.slug}`);
     continue;
   }
 
   const date = parseFrontmatterDate(data.date);
 
   if (Number.isNaN(date.getTime())) {
-    mismatches.push(`[INVALID DATE] ${file}: ${String(data.date)}`);
+    mismatches.push(`[INVALID DATE] ${entry.slug}: ${String(data.date)}`);
     continue;
   }
 
@@ -55,7 +59,7 @@ for (const file of files) {
   const key = `${year}/${month}/${day}`;
 
   if (!legacyDates.has(key)) {
-    mismatches.push(`[DRIFT] ${file} → ${key} 不在 legacy/hexo-public 日期集合中`);
+    mismatches.push(`[DRIFT] ${entry.slug} → ${key} 不在 legacy/hexo-public 日期集合中`);
   }
 }
 
