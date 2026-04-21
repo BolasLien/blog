@@ -1,7 +1,7 @@
 # Hexo → Astro 遷移設計
 
 - **日期**：2026-04-14
-- **狀態**：P4 完成 — 進入 P5（切 GH Pages Source + prod 驗證 + 清 Hexo 檔案）
+- **狀態**：P5 完成 — 遷移落地（2026-04-21 切 Pages Source、驗 prod、清 Hexo 遺跡）
 - **作者**：Bolas Lien（與 Claude 協作）
 
 ## 背景
