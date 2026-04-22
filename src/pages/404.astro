@@ -6,20 +6,48 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   <section class="not-found">
     <h1>404</h1>
     <p>你來到了一個荒蕪之地，這個頁面不存在或已被移除。</p>
-    <p>
-      <a href="/blog/">回首頁</a>
-      <a href="/blog/tags/">查看所有標籤</a>
-    </p>
+    <div class="not-found-links">
+      <a href="/blog/" class="link-btn">← 回首頁</a>
+      <a href="/blog/archives/" class="link-btn">所有文章</a>
+    </div>
   </section>
 </BaseLayout>
 
 <style>
   .not-found {
     text-align: center;
-    padding: 4rem 1rem;
+    padding: 5rem 1rem;
   }
   .not-found h1 {
-    font-size: 4rem;
-    margin: 0;
+    font-size: 5rem;
+    font-weight: 800;
+    margin: 0 0 16px;
+    color: var(--fg-3);
+    letter-spacing: -0.04em;
+  }
+  .not-found p {
+    font-size: 16px;
+    color: var(--fg-2);
+    margin: 0 0 24px;
+  }
+  .not-found-links {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+  }
+  .link-btn {
+    display: inline-flex;
+    align-items: center;
+    font-size: 14px;
+    color: var(--fg-2);
+    text-decoration: none;
+    padding: 6px 14px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    transition: color 120ms ease, border-color 120ms ease;
+  }
+  .link-btn:hover {
+    color: var(--accent);
+    border-color: var(--accent);
   }
 </style>

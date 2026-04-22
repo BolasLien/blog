@@ -2,8 +2,9 @@
 import { getCollection } from 'astro:content';
 import type { GetStaticPaths, InferGetStaticPropsType } from 'astro';
 import { getAllTags, getPostsByTag } from '../../utils/tags';
-import { formatDateParams, formatTaipeiIso } from '../../utils/dates';
+import { formatDateParams } from '../../utils/dates';
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import PostCard from '../../components/PostCard.astro';
 
 export const getStaticPaths = (async () => {
   const posts = await getCollection('posts');
@@ -18,20 +19,62 @@ type Props = InferGetStaticPropsType<typeof getStaticPaths>;
 const { tag, posts } = Astro.props as Props;
 ---
 
-<BaseLayout title={`標籤：${tag}`} description={`標籤「${tag}」的所有文章`}>
-  <h1>標籤：{tag}</h1>
-  <p>{posts.length} 篇文章</p>
-  <ul>
-    {posts.map((post) => {
-      const { year, month, day } = formatDateParams(post.data.date);
-      const href = `/blog/${year}/${month}/${day}/${post.id}/`;
-      return (
-        <li>
-          <a href={href}>{post.data.title}</a>
-          <time datetime={formatTaipeiIso(post.data.date)}>{year}-{month}-{day}</time>
-          {post.data.description && <p>{post.data.description}</p>}
-        </li>
-      );
-    })}
-  </ul>
+<BaseLayout
+  title={`#${tag}`}
+  description={`標籤「${tag}」的所有文章`}
+  activeNav="Tags"
+>
+  <section class="tag-page">
+    <a href="/blog/tags/" class="back-link">← All tags</a>
+    <h1><span class="tag-hash">#</span>{tag}</h1>
+    <p class="subtitle">{posts.length} 篇文章</p>
+    <div class="post-list">
+      {posts.map((post) => {
+        const { year, month, day } = formatDateParams(post.data.date);
+        return (
+          <PostCard
+            title={post.data.title}
+            date={post.data.date}
+            description={post.data.description}
+            tags={post.data.tags}
+            href={`/blog/${year}/${month}/${day}/${post.id}/`}
+          />
+        );
+      })}
+    </div>
+  </section>
 </BaseLayout>
+
+<style>
+  .tag-page {
+    padding: 28px 0;
+  }
+  .back-link {
+    display: inline-block;
+    font-size: 13px;
+    color: var(--fg-2);
+    text-decoration: none;
+    margin-bottom: 16px;
+    transition: color 120ms ease;
+  }
+  .back-link:hover { color: var(--accent); }
+  .tag-page h1 {
+    font-size: 32px;
+    font-weight: 800;
+    margin: 0 0 8px;
+    letter-spacing: -0.01em;
+    display: flex;
+    align-items: baseline;
+    gap: 2px;
+  }
+  .tag-hash {
+    color: var(--fg-3);
+    font-family: var(--font-mono);
+    font-size: 24px;
+  }
+  .subtitle {
+    font-size: 15px;
+    color: var(--fg-2);
+    margin: 0 0 8px;
+  }
+</style>

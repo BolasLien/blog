@@ -1,0 +1,99 @@
+---
+import { getCollection } from 'astro:content';
+import { formatDateParams } from '../utils/dates';
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const posts = await getCollection('posts');
+const sorted = posts.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+
+interface YearGroup {
+  posts: Array<{ title: string; href: string; monthDay: string }>;
+}
+const byYear: Record<string, YearGroup> = {};
+for (const post of sorted) {
+  const { year, month, day } = formatDateParams(post.data.date);
+  if (!byYear[year]) byYear[year] = { posts: [] };
+  byYear[year].posts.push({
+    title: post.data.title,
+    href: `/blog/${year}/${month}/${day}/${post.id}/`,
+    monthDay: `${month}-${day}`,
+  });
+}
+const years = Object.keys(byYear).sort((a, b) => Number(b) - Number(a));
+---
+
+<BaseLayout title="Archives" description="所有文章依年份排列" activeNav="Archives">
+  <section class="archives">
+    <h1>Archives</h1>
+    <p class="subtitle">All posts by year. {posts.length} total.</p>
+    {years.map(year => (
+      <div class="year-group">
+        <h2 class="year-heading">{year}</h2>
+        {byYear[year].posts.map(({ title, href, monthDay }) => (
+          <div class="archive-row">
+            <span class="archive-date">{monthDay}</span>
+            <a href={href} class="archive-title">{title}</a>
+          </div>
+        ))}
+      </div>
+    ))}
+  </section>
+</BaseLayout>
+
+<style>
+  .archives {
+    padding: 28px 0;
+  }
+  .archives h1 {
+    font-size: 32px;
+    font-weight: 800;
+    margin: 0 0 8px;
+    letter-spacing: -0.01em;
+  }
+  .subtitle {
+    font-size: 15px;
+    color: var(--fg-2);
+    margin: 0 0 28px;
+  }
+  .year-group {
+    margin-bottom: 28px;
+  }
+  .year-heading {
+    font-size: 22px;
+    font-weight: 700;
+    margin: 0 0 8px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid var(--border);
+    /* override h2 top margin */
+    margin-top: 0 !important;
+  }
+  .archive-row {
+    display: flex;
+    gap: 16px;
+    padding: 10px 0;
+    align-items: baseline;
+    border-bottom: 1px solid color-mix(in srgb, var(--border) 50%, transparent);
+  }
+  .archive-row:last-child { border-bottom: none; }
+  .archive-date {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    color: var(--fg-3);
+    min-width: 48px;
+    flex-shrink: 0;
+  }
+  .archive-title {
+    font-size: 15px;
+    color: var(--fg-1);
+    text-decoration: underline;
+    text-decoration-style: dashed;
+    text-decoration-color: var(--border);
+    text-underline-offset: 4px;
+    text-decoration-thickness: 1px;
+    transition: color 120ms ease, text-decoration-color 120ms ease;
+  }
+  .archive-title:hover {
+    color: var(--accent);
+    text-decoration-color: var(--accent);
+  }
+</style>

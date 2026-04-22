@@ -1,26 +1,92 @@
 ---
 import { getCollection } from 'astro:content';
-import { formatDateParams, formatTaipeiIso } from '../utils/dates';
+import { formatDateParams } from '../utils/dates';
 import BaseLayout from '../layouts/BaseLayout.astro';
+import PostCard from '../components/PostCard.astro';
 
 const posts = await getCollection('posts');
 const sorted = posts.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+const recent = sorted.slice(0, 5);
 ---
 
-<BaseLayout title="Bolas 的開發與學習筆記" description="前端工程師的技術學習筆記、踩過的坑，以及軟體開發心得">
-  <h1>文章列表</h1>
-  <ul>
-    {sorted.map((post) => {
+<BaseLayout
+  title="Bolas 的開發與學習筆記"
+  description="前端工程師的技術學習筆記、踩過的坑，以及軟體開發心得"
+  activeNav="Posts"
+>
+  <section class="hero">
+    <h1>工程師的職場觀察</h1>
+    <p class="hero-desc">
+      前端工程師 Bolas 的部落格。記錄 AI 輔助開發、團隊協作、工作流程，以及從 PM 轉職一路走來的心得。
+    </p>
+  </section>
+
+  <section class="recent-posts">
+    <div class="section-header">
+      <h2 class="section-title">Recent Posts</h2>
+      <a href="/blog/archives/" class="all-posts-link">All posts →</a>
+    </div>
+    {recent.map((post) => {
       const { year, month, day } = formatDateParams(post.data.date);
-      const href = `/blog/${year}/${month}/${day}/${post.id}/`;
       return (
-        <li>
-          <a href={href}>{post.data.title}</a>
-          <time datetime={formatTaipeiIso(post.data.date)}>{year}-{month}-{day}</time>
-          <p>{post.data.description}</p>
-          {post.data.tags.length > 0 && <p class="tags">{post.data.tags.join(', ')}</p>}
-        </li>
+        <PostCard
+          title={post.data.title}
+          date={post.data.date}
+          description={post.data.description}
+          tags={post.data.tags}
+          href={`/blog/${year}/${month}/${day}/${post.id}/`}
+        />
       );
     })}
-  </ul>
+  </section>
 </BaseLayout>
+
+<style>
+  .hero {
+    padding: 36px 0 20px;
+  }
+  .hero h1 {
+    font-size: 40px;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    margin: 0 0 14px;
+    line-height: 1.15;
+  }
+  .hero-desc {
+    font-size: 17px;
+    color: var(--fg-2);
+    line-height: 1.7;
+    max-width: 620px;
+    margin: 0;
+  }
+  .recent-posts {
+    padding-top: 8px;
+  }
+  .section-header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 4px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--fg-1);
+  }
+  .section-title {
+    font-size: 22px;
+    font-weight: 700;
+    margin: 0;
+    white-space: nowrap;
+    /* override h2 top margin from global */
+    margin-top: 0 !important;
+  }
+  .all-posts-link {
+    font-size: 13px;
+    color: var(--fg-2);
+    text-decoration: none;
+    white-space: nowrap;
+    flex: none;
+    transition: color 120ms ease;
+  }
+  .all-posts-link:hover { color: var(--accent); }
+</style>

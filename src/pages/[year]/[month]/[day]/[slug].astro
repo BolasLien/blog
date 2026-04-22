@@ -2,37 +2,127 @@
 import type { InferGetStaticPropsType } from 'astro';
 import { getCollection, render } from 'astro:content';
 import BaseLayout from '../../../../layouts/BaseLayout.astro';
+import Tag from '../../../../components/Tag.astro';
+import Pagination from '../../../../components/Pagination.astro';
 import { formatDateParams, formatTaipeiIso } from '../../../../utils/dates';
 
 export async function getStaticPaths() {
   const posts = await getCollection('posts');
-  return posts.map((post) => {
+  const sorted = posts.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+  return sorted.map((post, index) => {
     const { year, month, day } = formatDateParams(post.data.date);
-    const slug = post.id;
+    const prev = sorted[index + 1]; // older post
+    const next = sorted[index - 1]; // newer post
     return {
-      params: { year, month, day, slug },
-      props: { post },
+      params: { year, month, day, slug: post.id },
+      props: {
+        post,
+        prev: prev
+          ? (() => {
+              const p = formatDateParams(prev.data.date);
+              return { title: prev.data.title, href: `/blog/${p.year}/${p.month}/${p.day}/${prev.id}/` };
+            })()
+          : undefined,
+        next: next
+          ? (() => {
+              const n = formatDateParams(next.data.date);
+              return { title: next.data.title, href: `/blog/${n.year}/${n.month}/${n.day}/${next.id}/` };
+            })()
+          : undefined,
+      },
     };
   });
 }
 
 type Props = InferGetStaticPropsType<typeof getStaticPaths>;
-const { post } = Astro.props as Props;
+const { post, prev, next } = Astro.props as Props;
 const { Content } = await render(post);
 const { year, month, day } = formatDateParams(post.data.date);
+const dateStr = `${year}-${month}-${day}`;
 ---
 
-<BaseLayout title={post.data.title} description={post.data.description} ogType="article">
-  <article>
-    <header>
-      <h1>{post.data.title}</h1>
-      <time datetime={formatTaipeiIso(post.data.date)}>
-        {year}-{month}-{day}
-      </time>
+<BaseLayout
+  title={post.data.title}
+  description={post.data.description}
+  ogType="article"
+  activeNav="Posts"
+>
+  <article class="post-article">
+    <a href="/blog/" class="back-link">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M5 12h14M5 12l6-6M5 12l6 6"/>
+      </svg>
+      Back to posts
+    </a>
+
+    <header class="post-header">
+      <h1 class="post-title">{post.data.title}</h1>
+      <div class="post-meta">
+        <span class="post-date">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="3" y="5" width="18" height="16" rx="2"/>
+            <path d="M8 3v4M16 3v4M3 10h18"/>
+          </svg>
+          <time datetime={formatTaipeiIso(post.data.date)}>{dateStr}</time>
+        </span>
+      </div>
       {post.data.tags.length > 0 && (
-        <p class="tags">{post.data.tags.join(', ')}</p>
+        <div class="post-tags">
+          {post.data.tags.map(t => <Tag name={t} />)}
+        </div>
       )}
     </header>
-    <Content />
+
+    <div class="prose">
+      <Content />
+    </div>
+
+    <Pagination prev={prev} next={next} />
   </article>
 </BaseLayout>
+
+<style>
+  .post-article {
+    padding: 24px 0;
+  }
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 13px;
+    color: var(--fg-2);
+    text-decoration: none;
+    margin-bottom: 20px;
+    transition: color 120ms ease;
+  }
+  .back-link:hover { color: var(--accent); }
+
+  .post-header {
+    margin-bottom: 32px;
+  }
+  .post-title {
+    font-size: 36px;
+    font-weight: 800;
+    letter-spacing: -0.01em;
+    line-height: 1.2;
+    margin: 0 0 12px;
+  }
+  .post-meta {
+    display: flex;
+    gap: 14px;
+    font-size: 13px;
+    color: var(--fg-3);
+    font-family: var(--font-mono);
+    margin-bottom: 12px;
+  }
+  .post-date {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+  }
+  .post-tags {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+  }
+</style>

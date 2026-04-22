@@ -7,28 +7,63 @@ const posts = await getCollection('posts');
 const tags = getAllTags(posts);
 ---
 
-<BaseLayout title="標籤" description="所有文章標籤">
-  <h1>標籤</h1>
-  <ul class="tag-list">
-    {tags.map(({ tag, count }) => (
-      <li>
-        <a href={`/blog/tags/${tag}/`}>{tag}</a>
-        <span class="count">({count})</span>
-      </li>
-    ))}
-  </ul>
+<BaseLayout title="Tags" description="所有文章標籤" activeNav="Tags">
+  <section class="tags-page">
+    <h1>Tags</h1>
+    <p class="subtitle">
+      All topics I've written about. {tags.length} tags across {posts.length} posts.
+    </p>
+    <div class="tag-grid">
+      {tags.map(({ tag, count }) => (
+        <a href={`/blog/tags/${tag}/`} class="tag-item">
+          #{tag}
+          <span class="tag-count">{count}</span>
+        </a>
+      ))}
+    </div>
+  </section>
 </BaseLayout>
 
 <style>
-  .tag-list {
-    list-style: none;
-    padding: 0;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem 1rem;
+  .tags-page {
+    padding: 28px 0;
   }
-  .count {
-    color: #888;
-    margin-left: 0.25rem;
+  .tags-page h1 {
+    font-size: 32px;
+    font-weight: 800;
+    margin: 0 0 8px;
+    letter-spacing: -0.01em;
+  }
+  .subtitle {
+    font-size: 15px;
+    color: var(--fg-2);
+    margin: 0 0 24px;
+  }
+  .tag-grid {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  .tag-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    font-weight: 500;
+    padding: 5px 14px;
+    border-radius: var(--radius-pill);
+    background: var(--denim-soft);
+    color: var(--denim-deep);
+    text-decoration: none;
+    transition: background 120ms ease;
+  }
+  .tag-item:hover {
+    background: var(--denim-200);
+    color: var(--denim-deep);
+  }
+  .tag-count {
+    font-size: 11px;
+    color: var(--denim-500);
+    font-family: var(--font-mono);
   }
 </style>

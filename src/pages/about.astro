@@ -2,25 +2,152 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
-<BaseLayout title="About">
-  <h1>About</h1>
+<BaseLayout title="About" description="關於 Bolas Lien — 前端工程師、部落格作者" activeNav="About">
+  <section class="about">
+    <h1>About</h1>
 
-  <h2>關於我</h2>
-  <p>
-    嗨，我是連小艾，一名前端工程師。<br />
-    熟悉的技能為 Scss/Less, Vue, Webpack, Gulp, Git, Linux command line（使用過 docker, cypress）。
-  </p>
-  <p>
-    我喜歡團隊協作的環境，視團隊為優先，當我協助提升團隊工作效率、或是引導團隊解決難題的時候，我會感到很有成就感。<br />
-    若想要了解更多我的經歷，可以參考<a href="https://www.linkedin.com/in/bolaslien/">我的 Linkedin</a>。
-  </p>
+    <div class="profile">
+      <img
+        src="/blog/img/avatar.webp"
+        alt="Bolas Lien"
+        class="avatar"
+        width="100"
+        height="100"
+      />
+      <div class="profile-info">
+        <div class="profile-name">Bolas Lien</div>
+        <p class="profile-bio">
+          前端工程師，從遊戲 PM 轉職。常寫軟體工程師的職場觀察以及職業心得文章。
+          未來想寫更多關於架構、規範、協作、工作流程的內容。
+        </p>
+      </div>
+    </div>
 
-  <h2>關於部落格</h2>
-  <p>這裡記錄了我的技術學習筆記、踩過的坑，以及軟體開發心得筆記。</p>
+    <div class="social-links">
+      <a href="https://github.com/BolasLien" class="social-btn" target="_blank" rel="noopener noreferrer">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2.2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1.1-.8.1-.8.1-.8 1.3.1 1.9 1.3 1.9 1.3 1.1 1.9 3 1.4 3.7 1 .1-.8.4-1.4.8-1.7-2.7-.3-5.5-1.3-5.5-6a4.7 4.7 0 0 1 1.2-3.2 4.3 4.3 0 0 1 .1-3.2s1-.3 3.3 1.2a11.4 11.4 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.4 1 .4 2.3.1 3.2a4.7 4.7 0 0 1 1.2 3.2c0 4.7-2.8 5.7-5.5 6 .4.4.8 1.1.8 2.2v3.2c0 .3.2.7.8.6A12 12 0 0 0 12 .3Z"/>
+        </svg>
+        GitHub
+      </a>
+      <a href="https://www.linkedin.com/in/bolaslien/" class="social-btn" target="_blank" rel="noopener noreferrer">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/>
+          <circle cx="4" cy="4" r="2"/>
+        </svg>
+        LinkedIn
+      </a>
+      <a href="mailto:bolaslien@gmail.com" class="social-btn">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <rect x="3" y="5" width="18" height="14" rx="2"/>
+          <path d="m3 7 9 6 9-6"/>
+        </svg>
+        Email
+      </a>
+      <a href="/blog/rss.xml" class="social-btn">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M4 11a9 9 0 0 1 9 9"/>
+          <path d="M4 4a16 16 0 0 1 16 16"/>
+          <circle cx="5" cy="19" r="1.5"/>
+        </svg>
+        RSS
+      </a>
+    </div>
 
-  <h2>聯絡方式</h2>
-  <ul>
-    <li><a href="https://www.linkedin.com/in/bolaslien/">Linkedin</a></li>
-    <li><a href="mailto:bolaslien@gmail.com">Email</a></li>
-  </ul>
+    <hr class="divider" />
+
+    <h2>寫作主題</h2>
+    <ul class="topics">
+      <li>AI 輔助開發 — Claude Code、prompt 工程、工作流程</li>
+      <li>工程師思維 — 驗證、產品思維、code review</li>
+      <li>團隊協作 — Scrum、daily meeting、規範建立</li>
+      <li>技術筆記 — JavaScript、CSS、TypeScript</li>
+      <li>職涯 — 從遊戲 PM 轉職前端的歷程與心得</li>
+    </ul>
+  </section>
 </BaseLayout>
+
+<style>
+  .about {
+    padding: 28px 0;
+  }
+  .about h1 {
+    font-size: 32px;
+    font-weight: 800;
+    margin: 0 0 20px;
+    letter-spacing: -0.01em;
+  }
+  .profile {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    margin-bottom: 20px;
+  }
+  .avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 9999px;
+    border: 2px solid var(--border);
+    flex-shrink: 0;
+    object-fit: cover;
+  }
+  .profile-info {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .profile-name {
+    font-size: 22px;
+    font-weight: 700;
+  }
+  .profile-bio {
+    font-size: 14px;
+    color: var(--fg-2);
+    line-height: 1.7;
+    max-width: 500px;
+    margin: 0;
+  }
+  .social-links {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  .social-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    color: var(--fg-2);
+    text-decoration: none;
+    padding: 5px 12px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-pill);
+    transition: color 120ms ease, border-color 120ms ease;
+  }
+  .social-btn:hover {
+    color: var(--accent);
+    border-color: var(--accent);
+  }
+  .divider {
+    border: 0;
+    border-top: 1px solid var(--border);
+    margin: 28px 0;
+  }
+  .about h2 {
+    font-size: 20px;
+    font-weight: 700;
+    margin: 0 0 10px;
+  }
+  .topics {
+    font-size: 15px;
+    line-height: 1.9;
+    color: var(--fg-1);
+    padding-left: 1.5rem;
+  }
+  .topics li::marker { color: var(--accent); }
+
+  @media (max-width: 480px) {
+    .profile { flex-direction: column; }
+    .avatar { width: 80px; height: 80px; }
+  }
+</style>
