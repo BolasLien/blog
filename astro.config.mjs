@@ -12,12 +12,6 @@ export default defineConfig({
   },
   fonts: [
     {
-      provider: fontProviders.fontsource(),
-      name: 'Noto Sans TC',
-      cssVariable: '--font-sans',
-      weights: [400, 500, 600, 700, 800],
-    },
-    {
       provider: fontProviders.google(),
       name: 'JetBrains Mono',
       cssVariable: '--font-mono',

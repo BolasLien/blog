@@ -64,9 +64,9 @@
   --selection-fg: #171615;
 
   /* Typography */
-  --font-sans:    "Noto Sans TC", -apple-system, BlinkMacSystemFont, "PingFang TC", "Microsoft JhengHei", system-ui, sans-serif;
+  --font-sans:    -apple-system, BlinkMacSystemFont, "PingFang TC", "Microsoft JhengHei", system-ui, sans-serif;
   --font-mono:    "JetBrains Mono", "Menlo", "Consolas", "Noto Sans Mono CJK TC", monospace;
-  --font-display: "Noto Sans TC", "PingFang TC", system-ui, sans-serif;
+  --font-display: -apple-system, BlinkMacSystemFont, "PingFang TC", "Microsoft JhengHei", system-ui, sans-serif;
 
   /* Type scale */
   --fs-xs:   12px;
@@ -165,7 +165,6 @@ body {
   line-height: var(--lh-body);
   font-weight: var(--fw-regular);
   -webkit-font-smoothing: antialiased;
-  text-rendering: optimizeLegibility;
   margin: 0;
   padding: 0;
   transition: background 120ms ease, color 120ms ease;
