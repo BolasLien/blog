@@ -1,10 +1,5 @@
 ---
-import '@fontsource/noto-sans-tc/300.css';
-import '@fontsource/noto-sans-tc/400.css';
-import '@fontsource/noto-sans-tc/500.css';
-import '@fontsource/noto-sans-tc/600.css';
-import '@fontsource/noto-sans-tc/700.css';
-import '@fontsource/noto-sans-tc/800.css';
+import { Font } from 'astro:assets';
 import '../styles/global.css';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
@@ -28,6 +23,8 @@ const OG_IMAGE = new URL('/blog/img/og_image.png', Astro.site).href;
 <!DOCTYPE html>
 <html lang="zh-TW">
   <head>
+    <Font cssVariable="--font-sans" preload />
+    <Font cssVariable="--font-mono" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <link rel="icon" type="image/svg+xml" href="/blog/favicon.svg" />

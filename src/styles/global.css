@@ -7,8 +7,6 @@
    Neutral: warm paper #fbfaf7 + warm ink #171615
    ===================================================================== */
 
-@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,500;0,700&display=swap');
-
 /* ========================== Light mode ========================== */
 :root,
 [data-theme="light"] {
