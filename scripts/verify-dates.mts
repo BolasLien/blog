@@ -31,6 +31,9 @@ const files = readdirSync(POSTS_DIR)
   .filter((e) => existsSync(e.path));
 const mismatches: string[] = [];
 
+// 遷移完成日，之後新增的 post 不在 legacy 集合中屬正常，跳過驗證
+const MIGRATION_CUTOFF = new Date('2026-04-21T00:00:00+08:00');
+
 // 使用 JSON_SCHEMA 讓 gray-matter 不自動把 YAML date string 轉成 Date 物件
 // （預設行為會把無 TZ 的 date 當 UTC 解析，造成台北時間 +8h 後跨日）
 const matterOpts = {
@@ -54,6 +57,8 @@ for (const entry of files) {
     mismatches.push(`[INVALID DATE] ${entry.slug}: ${String(data.date)}`);
     continue;
   }
+
+  if (date > MIGRATION_CUTOFF) continue;
 
   const { year, month, day } = formatDateParams(date);
   const key = `${year}/${month}/${day}`;
