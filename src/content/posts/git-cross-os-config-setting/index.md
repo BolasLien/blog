@@ -58,7 +58,7 @@ warning: LF will be replaced by CRLF ... The file will have its original line en
 以為問題已經解決，用任何的編輯器去檢查都確定是 LF 格式了，沒想到還是會出現異動...
 
 後來我在 Gitlab commit 紀錄裡面發現了 `100755 → 100644` 寫在檔案路徑後面
-![](https://i.imgur.com/TJGoJHe.png)
+![](./TJGoJHe.png)
 
 拿去 Google 後才發現，原來 Git 連**檔案權限**都要管，最後是把 Git 的權限追蹤設定關起來就完整解決了。
 

@@ -66,7 +66,7 @@ tags:
 
 > 💡 [詳細規則請點此看文件](https://262.ecma-international.org/6.0/#sec-type-conversion)，不過我想大部分的人應該不會看...
 >
-> ![](https://i.imgur.com/6HWsM9I.png)
+> ![](./6HWsM9I.png)
 
 ### 發生「強制轉型」的情境
 

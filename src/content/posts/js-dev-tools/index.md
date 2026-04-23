@@ -11,7 +11,7 @@ tags:
 
 ## Break on
 在瀏覽器(chrome)的開發工具中，可以對`標籤`下斷點，當程式去改變標籤的時候，瀏覽器就會捕捉是誰改變的。
-![](https://i.imgur.com/o2ivbp4.png)
+![](./o2ivbp4.png)
 
 ## 常見的印出訊息的方式。
 * 直接印出來
@@ -43,7 +43,7 @@ let a = [
 console.log(a)
 console.table(a)
 ```
-![](https://i.imgur.com/8tFSIa6.png)
+![](./8tFSIa6.png)
 
 ## 帶有圖示的console
 * `console.warn()`帶有警告圖示⚠️及樣式的訊息

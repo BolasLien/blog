@@ -128,7 +128,7 @@ let a2 = 1
 console.log(window)
 ```
 
-![](https://i.imgur.com/PtD1aFJ.png)
+![](./PtD1aFJ.png)
 
 ---
 
