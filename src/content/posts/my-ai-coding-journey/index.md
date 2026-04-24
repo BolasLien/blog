@@ -3,12 +3,12 @@ title: 我用 AI 寫程式這幾年
 date: '2026-03-02T18:15:46+08:00'
 description: 記錄從 2023 年第一次使用 ChatGPT 到幾乎不手寫程式碼的 AI 輔助開發旅程與心路歷程。
 tags:
-  - ai 開發工具
+  - ai-開發工具
   - 職涯成長
   - 開發心得
   - chatgpt
-  - github copilot
-  - claude code
+  - github-copilot
+  - claude-code
 ---
 
 從 2023 年第一次用 ChatGPT，到現在幾乎不手寫程式碼，我把這段轉變寫下來了，也算是見證工程師這個職業的重心在移動的心路歷程。

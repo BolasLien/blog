@@ -3,9 +3,9 @@ title: 你在用 AI 改程式碼，還是完成任務？
 date: '2026-03-10T12:00:00+08:00'
 description: 探討如何轉變使用 AI 工具的思維，不再只是請 AI 修幾行 code，而是讓 AI 幫你完成整個任務。
 tags:
-  - ai 開發工具
-  - ai 輔助開發
-  - claude code
+  - ai-開發工具
+  - ai-輔助開發
+  - claude-code
   - 開發工作流程
   - 工作心得
   - 軟體開發

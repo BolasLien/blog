@@ -3,10 +3,10 @@ title: 從觀望 Claude Code 到一頭栽進去 - EP1｜第一次就爆 token？
 date: '2025-08-02T14:27:12+08:00'
 description: 記錄第一次使用 Claude Code 的完整體驗，1.5 小時就燒光 token，卻也發現 AI 輔助開發的驚人潛力。
 tags:
-  - claude code
+  - claude-code
   - claude
-  - ai coding
-  - ai 開發工具
+  - ai-coding
+  - ai-開發工具
   - 開發心得
 ---
 

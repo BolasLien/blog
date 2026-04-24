@@ -4,9 +4,9 @@ date: '2026-03-22T22:36:44+08:00'
 description: 用 AI 做 Figma 切版，花了很多時間做成 Skill，最後還是切出歪掉的畫面。
 tags:
   - 前端技術
-  - ai 開發工具
+  - ai-開發工具
   - 開發心得
-  - Figma
+  - figma
   - 軟體開發
 ---
 
