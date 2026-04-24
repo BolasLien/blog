@@ -22,6 +22,7 @@ JS_METRICS='
   const paints = performance.getEntriesByType("paint");
   const fcp = paints.find(p => p.name === "first-contentful-paint");
   const fp = paints.find(p => p.name === "first-paint");
+  const lcp = window.__lcp ? window.__lcp.startTime : null;
   const r = performance.getEntriesByType("resource");
   const js = r.filter(x => x.initiatorType === "script");
   const css = r.filter(x => x.initiatorType === "link" || x.initiatorType === "css");
@@ -42,6 +43,7 @@ JS_METRICS='
     transfer_size_bytes: n.transferSize,
     fp_ms: fp ? Math.round(fp.startTime) : null,
     fcp_ms: fcp ? Math.round(fcp.startTime) : null,
+    lcp_ms: lcp !== null ? Math.round(lcp) : null,
     total_requests: r.length,
     total_transfer_bytes: r.reduce((s,e) => s + (e.transferSize || 0), 0),
     js_count: js.length,
@@ -77,6 +79,10 @@ for entry in "${URLS[@]}"; do
 
   $B goto "$url" >/dev/null 2>&1
   sleep 3
+
+  # Register LCP observer (buffered: true so we get already-fired entries)
+  $B js 'new PerformanceObserver((list) => { window.__lcp = list.getEntries().slice(-1)[0]; }).observe({type: "largest-contentful-paint", buffered: true}); "ok"' >/dev/null 2>&1
+  sleep 1
 
   DATA=$($B js "$JS_METRICS" 2>/dev/null | tail -1)
   if [ -z "$DATA" ]; then
