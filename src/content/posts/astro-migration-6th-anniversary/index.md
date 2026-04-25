@@ -56,6 +56,12 @@ tags:
 
 以前最煩惱的設計問題現在都可以解決了，而且還不是套版，是完全照自己的提示做出來的風格，我覺得就算別人來模仿，也沒辦法模仿出我的思考我為什麼想要這樣。
 
+首頁版型 Before / After：
+
+![Hexo + Icarus 主題時期的首頁，左欄個人卡片含頭像、職稱、文章/分類/標籤統計與追蹤按鈕，右欄為文章卡片列表](./homepage-hexo-before.png)
+
+![Astro 遷移後的首頁，極簡排版，標題加大、文章列表搭配標籤 chip，右上角有 RSS 與 dark mode 切換](./homepage-astro-after.png)
+
 最後跑了一次 PageSpeed，電腦 100、行動 99，四個指標幾乎全滿，也檢查了 GA4 數據完全都沒掉，只能說從 Hexo 遷移到 Astro 的實驗非常成功！
 
 PageSpeed Insights 手機版 Before / After：
