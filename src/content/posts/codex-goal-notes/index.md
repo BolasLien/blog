@@ -12,9 +12,13 @@ tags:
 
 最近知道 codex 有發布 `/goal` 的功能，看[官方介紹](https://developers.openai.com/codex/use-cases/follow-goals)是可以做比較長的任務，跟我之前玩過的 ralph-loop 是同一個概念：**強制 AI 沒有完成任務就不能停下來**。
 
-這次用 codex `/goal` 實驗把我以前做的抽卡小遊戲重構成 React 架構，實際不到十分鐘就完整改寫成 React 了。如果我自己來做的話，可能幾個小時過去了我還在調整樣式...過去一年多以來，一直有這種感覺，在沒有 AI 之前，我已經知道結果是什麼了，我卻還要被自己的工作速度卡住；有了 AI 之後，我想要什麼，只要講幾句話就能幫我實現了，我的 Coding 效率不再是絆腳石。
+我用 codex 的情境幾乎都是請他幫我做 code review，我覺得他抓 bug 很厲害，但是開發體驗上我還是習慣用 claude code。
 
-我用 codex 的情境幾乎都是請他幫我做 code review，我覺得他抓 bug 很厲害，但是開發體驗上我還是習慣用 claude code。這次用 `/goal` 還滿驚喜的，尤其 GPT-5.5 不會像 Opus 4.7 那樣有很多廢話，每一步要我確認的事情都是必須要做的，跟我傳達的資訊也不會有太多雜訊，未來我會想繼續用 Codex，還想用 `/goal` 這個功能去翻新我以前做的東西。
+這次用 codex `/goal` 實驗把我以前做的抽卡小遊戲重構成 React 架構，實際不到十分鐘就完整改寫成 React 了。如果我自己來做的話，可能幾個小時過去了我還在調整樣式...
+
+實際用下來還滿驚喜的，尤其 GPT-5.5 不會像 Opus 4.7 那樣有很多廢話，每一步要我確認的事情都是必須要做的，跟我傳達的資訊也不會有太多雜訊，未來我會想繼續用 Codex，還想用 `/goal` 這個功能去翻新我以前做的東西。
+
+過去一年多以來，一直有這種感覺，在沒有 AI 之前，我已經知道結果是什麼了，我卻還要被自己的工作速度卡住；有了 AI 之後，我想要什麼，只要講幾句話就能幫我實現了，我的 Coding 效率不再是絆腳石。
 
 ## 核心概念
 
@@ -97,6 +101,8 @@ Markdown 的價值是管理複雜需求：
 
 ![新版 verse-draw 截圖](new-verse-draw.png)
 
+從下指令到本機跑起來、互動驗證完，整個過程不到 10 分鐘，後續換掉 API 跟樣式也沒花太多時間。
+
 實際用的 `/goal` prompt：
 
 ```text
@@ -161,8 +167,6 @@ Stop condition:
 - Final report must include changed files, validation commands and results, dev server URL, and remaining risks.
 ```
 
-從下指令到本機跑起來、互動驗證完，整個過程不到 10 分鐘，後續換掉 API 跟樣式也沒花太多時間。
-
 ## 寫 goal prompt 的重點
 
 好的 goal prompt 應該回答這幾件事：
@@ -223,7 +227,7 @@ goals = true
 
 為了讓 `/goal` 很好執行，我做了一個 [codex-goal-writer](https://github.com/BolasLien/skills/tree/main/skills/codex-goal-writer) Skill 可以快速產出結構化的 goal prompt。
 
-以這次重構為例，我是這樣使用這個 Skill，讓 Codex 幫我產生 goal prompt 後直接執行。
+以這次重構為例，我像下面這樣觸發 Skill，讓 Codex 幫我產生 goal prompt 後直接執行。
 
 ```
 我想要重構做成 react 版本，不...應該說是重做，素材也可以換掉，但互動流程不變，axios 可能不需要留，用 fetch 應該就可以取得資料了。
