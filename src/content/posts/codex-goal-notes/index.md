@@ -1,6 +1,6 @@
 ---
 title: codex goal 使用筆記
-date: '2026-05-13T00:00:00+08:00'
+date: "2026-05-13T00:00:00+08:00"
 description: Codex 的 `/goal` 是長時間任務模式：給它目標跟驗證條件，它會自己推進到完成才停。這篇筆記整理 prompt 結構、使用時機，以及什麼時候改用 `/plan`。
 tags:
   - codex
@@ -10,7 +10,7 @@ tags:
   - 開發工作流程
 ---
 
-最近知道 codex 有發布 `/goal` 的功能，看[官方介紹](https://developers.openai.com/codex/use-cases/follow-goals)是可以做比較長的任務，跟我之前玩過的 ralph-loop 是同一個的概念：要求 AI **你沒有完成任務就不能停下來**。
+最近知道 codex 有發布 `/goal` 的功能，看[官方介紹](https://developers.openai.com/codex/use-cases/follow-goals)是可以做比較長的任務，跟我之前玩過的 ralph-loop 是同一個概念：**強制 AI 沒有完成任務就不能停下來**。
 
 這次用 codex `/goal` 實驗把我以前做的抽卡小遊戲重構成 React 架構，實際不到十分鐘就完整改寫成 React 了。如果我自己來做的話，可能幾個小時過去了我還在調整樣式...過去一年多以來，一直有這種感覺，在沒有 AI 之前，我已經知道結果是什麼了，我卻還要被自己的工作速度卡住；有了 AI 之後，我想要什麼，只要講幾句話就能幫我實現了，我的 Coding 效率不再是絆腳石。
 
@@ -51,7 +51,7 @@ tags:
 `/goal` 是執行模式：
 
 ```text
-/goal 完成 X，直到 Y 驗證通過才停止。先讀 A，允許改 B,不要改 C，每個 checkpoint 跑 D。
+/goal 完成 X，直到 Y 驗證通過才停止。先讀 A，允許改 B，不要改 C，每個 checkpoint 跑 D。
 ```
 
 適合已經決定要做，並且希望 Codex 持續推進到明確停止條件。
@@ -81,13 +81,13 @@ Markdown 的價值是管理複雜需求：
 
 ## 實際試一遍
 
- [`css-card-game`](https://github.com/BolasLien/css-card-game) 是我 2020 年用 HTML + jQuery 寫的抽卡小遊戲。這次我用 `/goal` 把它重構成 React 19 + Vite 的版本（新 repo [`verse-draw`](https://github.com/BolasLien/verse-draw)），題材順手換成經文抽卡，但核心的抽卡互動跟 API 串接保留下來。
+[`css-card-game`](https://github.com/BolasLien/css-card-game) 是我 2020 年用 HTML + jQuery 寫的抽卡小遊戲。這次我用 `/goal` 把它重構成 React 19 + Vite 的版本（新 repo [`verse-draw`](https://github.com/BolasLien/verse-draw)），題材順手換成經文抽卡，但核心的抽卡互動跟 API 串接保留下來。
 
-|  | 舊版 `css-card-game` | 新版 `verse-draw` |
-| --- | --- | --- |
-| 建立日 | 2020 | 2026-05-13 |
-| Stack | HTML + jQuery + vanilla JS | React 19 + Vite + Vitest + Playwright |
-| 結構 | `index.html` + `images/` + `js/` 純靜態 | 完整 React project（`src/` / `tests/` / e2e） |
+|        | 舊版 `css-card-game`                    | 新版 `verse-draw`                             |
+| ------ | --------------------------------------- | --------------------------------------------- |
+| 建立日 | 2020-05-19                              | 2026-05-13                                    |
+| Stack  | HTML + jQuery + vanilla JS              | React 19 + Vite + Vitest + Playwright         |
+| 結構   | `index.html` + `images/` + `js/` 純靜態 | 完整 React project（`src/` / `tests/` / e2e） |
 
 舊版畫面：
 
@@ -111,7 +111,6 @@ Context:
 - 目前專案是單頁靜態網頁，主要邏輯在 index.html，素材在 images/。
 - 原本使用 jQuery UI draggable/droppable、jQuery Mobile vmouseout、axios。
 - 新版本可以替換素材，但互動流程不可改變。
-- API 來源維持：https://api.kento520.tw/zack/?rand
 - 新版本優先使用 fetch，不保留 axios，除非有明確理由。
 
 Scope:
@@ -162,7 +161,7 @@ Stop condition:
 - Final report must include changed files, validation commands and results, dev server URL, and remaining risks.
 ```
 
-從下指令到本機跑起來、互動驗證完，整個過程不到 10 分鐘。如果我自己來做的話，光是裝工具跟調整樣式就會花掉很多時間。
+從下指令到本機跑起來、互動驗證完，整個過程不到 10 分鐘，後續換掉 API 跟樣式也沒花太多時間。
 
 ## 寫 goal prompt 的重點
 
@@ -177,7 +176,7 @@ Stop condition:
 
 最重要的是停止條件要可驗證。比起「改善整體品質」，應該寫成「`npm run lint` 和 `npm run test:e2e` 都通過」、「eval suite 達到 90%」、「migration 後新舊輸出一致」、「部署 preview URL 可正常開啟」。
 
-## CLI 操作
+## Codex CLI 操作
 
 啟用 experimental goal：
 
@@ -220,8 +219,16 @@ goals = true
 - 任務複雜時，先寫 `PLAN.md`，再用 `/goal` 引用它。
 - goal prompt 應該像合約，不像願望清單。
 
-## __TODO 段標題（bonus: goal prompt skill）__
+## 同場加映 codex-goal-writer Skill
 
-為了讓 `/goal` 很好執行，我做了一個 skill 可以幫我寫 goal prompt——因為未必需要用到 `/plan` 才能做 goal，有時候聊一聊就知道要做的事情是什麼。
+為了讓 `/goal` 很好執行，我做了一個 [codex-goal-writer](https://github.com/BolasLien/skills/tree/main/skills/codex-goal-writer) Skill 可以快速產出結構化的 goal prompt。
 
-__TODO 結尾句（你決定要不要收，或就讓上面這段自然收尾）__
+以這次重構為例，我是這樣使用這個 Skill，讓 Codex 幫我產生 goal prompt 後直接執行。
+
+```
+我想要重構做成 react 版本，不...應該說是重做，素材也可以換掉，但互動流程不變，axios 可能不需要留，用 fetch 應該就可以取得資料了。
+
+我覺得這個任務可以轉成 goal
+```
+
+當使用者提到「幫我寫 /goal prompt」、「把這個任務轉成 goal」、「review 這個 goal prompt」時觸發這個 Skill，然後會產出包含 Objective / Context / Scope / Non-goals / Execution / Validation / Pause conditions / Stop condition 的結構化 prompt。
