@@ -4,6 +4,7 @@ import sitemap from '@astrojs/sitemap';
 import partytown from '@astrojs/partytown';
 import { readdirSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
+import rehypeTableWrap from './plugins/rehype-table-wrap.mjs';
 
 /** @param {Date} date */
 function formatDateParams(date) {
@@ -59,6 +60,9 @@ export default defineConfig({
   trailingSlash: 'always',
   build: {
     format: 'directory',
+  },
+  markdown: {
+    rehypePlugins: [rehypeTableWrap],
   },
   fonts: [
     {

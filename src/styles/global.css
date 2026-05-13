@@ -296,6 +296,94 @@ a:hover { color: var(--denim-deep); }
   text-decoration-color: var(--denim);
 }
 
+/* ============================ Tables =============================
+   Convention:
+     • Plain markdown tables → Direction C (default)
+     • Wrap a table in `<div class="table-zebra">…</div>` → Direction D
+   `.table-wrap` is injected by `plugins/rehype-table-wrap.mjs` so the
+   writer never needs to add it manually.
+   ================================================================= */
+
+.prose table {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 14.5px;
+  line-height: 1.7;
+  color: var(--fg-2);
+  font-family: var(--font-sans);
+  font-variant-numeric: tabular-nums;
+  margin: 0;
+}
+.prose th,
+.prose td {
+  text-align: left;
+  vertical-align: top;
+  font-weight: inherit;
+}
+.prose th[align="right"],
+.prose td[align="right"] { text-align: right; }
+.prose th[align="center"],
+.prose td[align="center"] { text-align: center; }
+
+.prose .table-wrap {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  margin: var(--space-4) 0;
+}
+.prose .table-wrap table { min-width: 460px; }
+
+/* C · Default — denim-soft header band, framed */
+.prose table thead th {
+  background: var(--denim-soft);
+  color: var(--denim-deep);
+  font-weight: 600;
+  font-size: 12.5px;
+  letter-spacing: 0.02em;
+  padding: 10px 16px;
+}
+.prose table tbody td {
+  padding: 12px 16px;
+  border-top: 1px solid var(--border);
+  transition: background-color 120ms linear, color 120ms linear;
+}
+.prose table tbody tr:first-child td { border-top: 0; }
+.prose table tbody tr:hover td {
+  background: var(--bg-2);
+  color: var(--fg-1);
+}
+
+/* D · Opt-in — warm zebra, hairline top/bottom */
+.prose .table-zebra .table-wrap {
+  border-left: 0;
+  border-right: 0;
+  border-radius: 0;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+.prose .table-zebra table thead th {
+  background: transparent;
+  color: var(--fg-3);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-weight: 500;
+  padding: 11px 16px;
+  border-bottom: 1px solid var(--border);
+}
+.prose .table-zebra table tbody td {
+  padding: 11px 16px;
+  border-top: 0;
+  transition: background-color 120ms linear;
+}
+.prose .table-zebra table tbody tr:nth-child(odd) td { background: var(--bg-2); }
+.prose .table-zebra table tbody tr:hover td {
+  background: var(--denim-soft);
+  color: var(--fg-2);
+}
+
 /* ========================== Layout shell ========================== */
 .page-wrapper {
   max-width: var(--content-max);
