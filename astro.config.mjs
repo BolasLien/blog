@@ -4,6 +4,8 @@ import sitemap from '@astrojs/sitemap';
 import partytown from '@astrojs/partytown';
 import { readdirSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
+import rehypeSlug from 'rehype-slug';
+import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import rehypeTableWrap from './plugins/rehype-table-wrap.mjs';
 
 /** @param {Date} date */
@@ -62,7 +64,21 @@ export default defineConfig({
     format: 'directory',
   },
   markdown: {
-    rehypePlugins: [rehypeTableWrap],
+    rehypePlugins: [
+      rehypeSlug,
+      [
+        rehypeAutolinkHeadings,
+        {
+          behavior: 'append',
+          properties: {
+            className: ['heading-anchor'],
+            ariaLabel: 'Link to this heading',
+          },
+          content: { type: 'text', value: '#' },
+        },
+      ],
+      rehypeTableWrap,
+    ],
   },
   fonts: [
     {

@@ -296,6 +296,39 @@ a:hover { color: var(--denim-deep); }
   text-decoration-color: var(--denim);
 }
 
+/* ======================= Heading anchors ========================
+   GitHub-style: hover heading to reveal `#` floating to the left.
+   Anchor is absolutely positioned so long headings never wrap
+   awkwardly. Touch devices: anchor stays hidden.
+   ================================================================ */
+
+.prose :is(h1, h2, h3, h4, h5, h6) {
+  position: relative;
+}
+
+.prose .heading-anchor {
+  position: absolute;
+  left: -1em;
+  top: 0;
+  width: 1em;
+  text-align: center;
+  color: var(--denim-300);
+  text-decoration: none;
+  font-weight: 400;
+  opacity: 0;
+  transition: opacity 150ms ease;
+}
+
+.prose :is(h1, h2, h3, h4, h5, h6):hover .heading-anchor,
+.prose .heading-anchor:focus-visible {
+  opacity: 1;
+}
+
+.prose .heading-anchor:hover {
+  color: var(--denim-deep);
+  text-decoration: none;
+}
+
 /* ============================ Tables =============================
    Convention:
      • Plain markdown tables → Direction C (default)
