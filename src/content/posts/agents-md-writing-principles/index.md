@@ -93,6 +93,59 @@ Anthropic 官方就有[建議 `CLAUDE.md` 要低於 200 行](https://code.claude
 - 優先提供分析、建議和計劃，而非直接實作
 ```
 
+### 慣用工具推薦（選用）
+
+如果有習慣的命令列工具，可以在「使用者層級」直接推薦給 AI，避免 AI 自己挑或從預設工具開始試。`rg` / `fd` 這類工具比 `grep` / `find` 速度快、輸出精簡，AI 一次命中需要的資訊、不用反覆嘗試，整體 token 消耗會降低。
+
+像我自己會把 shell 工具跟 Python 套件管理寫進去：
+
+````markdown
+## Shell Tools
+
+Prefer these tools over traditional Unix equivalents. They are faster, respect `.gitignore` by default, and produce more parseable output.
+
+| Task | Use | Instead of |
+|------|-----|------------|
+| Find files | `fd` | `find`, `ls -R` |
+| Search text | `rg` | `grep`, `ag` |
+| Search code structure | `ast-grep` | `grep`, `sed` |
+| Interactive selection | `fzf` | manual filtering |
+| Parse JSON | `jq` | ad-hoc Python |
+| Parse YAML/XML | `yq` | manual parsing |
+
+Rules:
+
+- Use `jq` / `yq` for structured data. Do not parse JSON, YAML, or XML with regex.
+- In scripts, CI, and agent workflows, avoid interactive tools like `fzf`; use non-interactive equivalents.
+- If a preferred tool is missing, attempt installation when you have permission to modify the environment.
+- If installation fails or is not possible, fall back to the traditional command and note it.
+
+## Python Usage
+
+Use `uv` for Python execution and package management.
+
+Do **not** use `pip`, `venv`, `poetry`, or global `python` directly unless explicitly required by the environment.
+
+| Task | Command |
+|------|---------|
+| Run a Python script | `uv run <script.py>` |
+| Run inline Python | `uv run python -c '<code>'` |
+| Run a Python module | `uv run python -m <module>` |
+| Run a tool (pytest, ruff…) | `uv run <tool>` |
+| Add a package | `uv add <package>` |
+| Add a dev dependency | `uv add --dev <package>` |
+| Remove a package | `uv remove <package>` |
+| Sync environment | `uv sync` |
+
+Rules:
+
+- Do not install packages globally.
+- Do not create virtual environments manually.
+- Do not modify project dependency files (`pyproject.toml`, `uv.lock`) unless the task requires it.
+- If `uv` is unavailable, install it when you have permission to modify the environment.
+- If installation fails or is not possible, stop and report rather than falling back to global Python tools.
+````
+
 ## 專案層級原則
 
 ### 不要一次告訴 Claude 所有資訊，而是告訴他「如何找到重要資訊」
