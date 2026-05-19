@@ -1,5 +1,5 @@
 {
-  "name": "bolaslien-blog",
+  "name": "blog",
   "compatibility_date": "2026-05-19",
   "assets": {
     "directory": "./dist"
