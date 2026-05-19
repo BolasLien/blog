@@ -39,6 +39,21 @@ const { post, prev, next } = Astro.props as Props;
 const { Content } = await render(post);
 const { year, month, day } = formatDateParams(post.data.date);
 const dateStr = `${year}-${month}-${day}`;
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BlogPosting',
+  headline: post.data.title,
+  description: post.data.description,
+  datePublished: formatTaipeiIso(post.data.date),
+  url: Astro.url.href,
+  author: {
+    '@type': 'Person',
+    name: 'Bolas Lien',
+    url: new URL('/blog/about/', Astro.site).href,
+  },
+  image: new URL('/blog/img/og_image.png', Astro.site).href,
+};
 ---
 
 <BaseLayout
@@ -47,6 +62,7 @@ const dateStr = `${year}-${month}-${day}`;
   ogType="article"
   activeNav="Posts"
 >
+  <script slot="head" type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
   <article class="post-article">
     <a href="/blog/" class="back-link">
       <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
