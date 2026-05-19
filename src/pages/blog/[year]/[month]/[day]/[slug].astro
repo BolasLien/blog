@@ -1,10 +1,10 @@
 ---
 import type { InferGetStaticPropsType } from 'astro';
 import { getCollection, render } from 'astro:content';
-import BaseLayout from '../../../../layouts/BaseLayout.astro';
-import Tag from '../../../../components/Tag.astro';
-import Pagination from '../../../../components/Pagination.astro';
-import { formatDateParams, formatTaipeiIso } from '../../../../utils/dates';
+import BaseLayout from '../../../../../layouts/BaseLayout.astro';
+import Tag from '../../../../../components/Tag.astro';
+import Pagination from '../../../../../components/Pagination.astro';
+import { formatDateParams, formatTaipeiIso } from '../../../../../utils/dates';
 
 export async function getStaticPaths() {
   const posts = await getCollection('posts');
@@ -50,9 +50,9 @@ const jsonLd = {
   author: {
     '@type': 'Person',
     name: 'Bolas Lien',
-    url: new URL('/blog/about/', Astro.site).href,
+    url: new URL('/about/', Astro.site).href,
   },
-  image: new URL('/blog/img/og_image.png', Astro.site).href,
+  image: new URL('/img/og_image.png', Astro.site).href,
 };
 ---
 
