@@ -15,7 +15,8 @@
     "migrate:posts": "tsx scripts/migrate-posts.mts",
     "audit:links": "tsx scripts/audit-links.mts",
     "audit:url-diff": "tsx scripts/url-diff.mts",
-    "audit:all": "npm run audit:links && npm run audit:url-diff --"
+    "audit:all": "npm run audit:links && npm run audit:url-diff --",
+    "deploy": "git push origin master:release"
   },
   "dependencies": {
     "@astrojs/rss": "^4.0.18",
