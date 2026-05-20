@@ -8,17 +8,18 @@ describe('checkBasePrefix', () => {
     expect(checkBasePrefix('/blog/_astro/hash.css')).toBeNull();
   });
 
-  it('以 / 開頭但非 /blog/ → 回 violation message', () => {
-    const result = checkBasePrefix('/foo/');
-    expect(result).toMatch(/base/i);
+  it('以 / 開頭（非 /blog/）→ null（base prefix 已移除）', () => {
+    expect(checkBasePrefix('/foo/')).toBeNull();
+    expect(checkBasePrefix('/about/')).toBeNull();
   });
 
-  it('以 /blog 開頭但無 trailing slash（e.g. /blogsomething）→ violation', () => {
-    expect(checkBasePrefix('/blogsomething/')).not.toBeNull();
+  it('/blogsomething/ → null（無 prefix 限制）', () => {
+    expect(checkBasePrefix('/blogsomething/')).toBeNull();
   });
 
-  it('非 / 開頭 → 視為 relative，不檢查（回 null）', () => {
+  it('非 / 開頭 → null', () => {
     expect(checkBasePrefix('foo')).toBeNull();
     expect(checkBasePrefix('./foo')).toBeNull();
   });
 });
+
