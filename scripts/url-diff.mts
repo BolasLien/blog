@@ -42,11 +42,11 @@ const distUrls = new Set<string>();
 for await (const htmlPath of glob('**/*.html', { cwd: DIST })) {
   let url: string;
   if (htmlPath === 'index.html') {
-    url = '/blog/';
+    url = '/';
   } else if (htmlPath.endsWith('/index.html')) {
-    url = '/blog/' + htmlPath.replace(/\/index\.html$/, '/');
+    url = '/' + htmlPath.replace(/index\.html$/, '');
   } else {
-    url = '/blog/' + htmlPath;
+    url = '/' + htmlPath;
   }
   distUrls.add(normalizeUrl(url));
 }
@@ -70,3 +70,4 @@ if (missing.length > 0) {
 
 console.log(`✓ url-diff passed — 所有保留 URL 都在 dist 中`);
 process.exit(0);
+
