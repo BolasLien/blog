@@ -39,7 +39,7 @@ function isChineseSlugPost(url: string): boolean {
 }
 
 function hasChineseChar(str: string): boolean {
-  return /[\u4e00-\u9fff]/.test(str);
+  return /[一-鿿]/.test(str);
 }
 
 export function applyAcceptedLossFilters(
@@ -57,6 +57,10 @@ export function applyAcceptedLossFilters(
     if (url === '/blog/robots.txt') continue;
     if (url === '/blog/img/og_image.png') continue;
     if (/^\/blog\/page\/\d+\/?$/.test(url)) continue;
+    // Personal site restructure (PR #30): about moved from /blog/about/ → /about/
+    if (url === '/blog/about/') continue;
+    // 404 page moved from /blog/404.html → /404.html (base removed)
+    if (url === '/blog/404.html') continue;
     if (opts.chineseTagEncoding === 'encoded' && /^\/blog\/tags\/[^/]+\/?$/.test(url)) {
       const tag = url.replace(/^\/blog\/tags\//, '').replace(/\/$/, '');
       if (hasChineseChar(tag)) continue;
@@ -67,3 +71,4 @@ export function applyAcceptedLossFilters(
   }
   return result;
 }
+
