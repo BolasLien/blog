@@ -69,7 +69,7 @@ describe('applyAcceptedLossFilters', () => {
     expect(result.size).toBe(2);
   });
 
-  it('英文 post / 英文 tag / /blog/ / /blog/about/ 永遠保留', () => {
+  it('英文 post / 英文 tag / /blog/ 永遠保留；/blog/about/ 已移至 /about/（accepted loss）', () => {
     const input = new Set([
       '/blog/',
       '/blog/about/',
@@ -78,7 +78,8 @@ describe('applyAcceptedLossFilters', () => {
       '/blog/2021/01/01/foo-bar/',
     ]);
     const result = applyAcceptedLossFilters(input, { chineseTagEncoding: 'keep' });
-    expect(result.size).toBe(5);
+    expect(result.size).toBe(4);
+    expect(result.has('/blog/about/')).toBe(false);
   });
 
   it('濾掉 Hexo-cased tag URL（P2 lowercased）', () => {
@@ -87,7 +88,7 @@ describe('applyAcceptedLossFilters', () => {
       '/blog/tags/Claude-Code/',
       '/blog/tags/ChatGPT/',
       '/blog/tags/HTML/',
-      '/blog/tags/javascript/', // 小寫要保留
+      '/blog/tags/javascript/',
     ]);
     const result = applyAcceptedLossFilters(input, { chineseTagEncoding: 'keep' });
     expect(result.size).toBe(1);
@@ -97,10 +98,11 @@ describe('applyAcceptedLossFilters', () => {
   it('濾掉 P2 renamed tag URL（前端開發 → 前端技術）', () => {
     const input = new Set([
       '/blog/tags/前端開發/',
-      '/blog/tags/前端技術/', // 現有 tag 要保留
+      '/blog/tags/前端技術/',
     ]);
     const result = applyAcceptedLossFilters(input, { chineseTagEncoding: 'keep' });
     expect(result.size).toBe(1);
     expect(result.has('/blog/tags/前端技術/')).toBe(true);
   });
 });
+
