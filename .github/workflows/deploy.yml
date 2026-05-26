@@ -45,6 +45,9 @@ jobs:
       - name: Audit URL diff
         run: npm run audit:url-diff -- --chinese-tag keep
 
+      - name: Generate redirect pages for GitHub Pages
+        run: node scripts/generate-gh-pages-redirects.mjs ./dist https://bolaslien.com
+
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
