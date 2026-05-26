@@ -2,8 +2,10 @@
 /**
  * generate-gh-pages-redirects.mjs
  *
- * Replaces every HTML file under dist/ with a minimal redirect page
- * that sends visitors to the equivalent URL on the new domain.
+ * Replaces every HTML file under dist/ with a redirect page pointing to the
+ * equivalent URL on the new domain. 404.html gets a special path-preserving
+ * redirect so old GitHub Pages URLs (e.g. /blog/2021/09/01/slug/) land on
+ * the correct page at the new domain instead of the 404 page.
  *
  * Usage: node scripts/generate-gh-pages-redirects.mjs [distDir] [newBase]
  *   distDir  – path to built output (default: ./dist)
@@ -41,10 +43,30 @@ function redirectHtml(url) {
 `;
 }
 
+// 404.html gets a path-preserving redirect so old post URLs land correctly.
+// e.g. bolaslien.github.io/blog/2021/09/01/slug/ → bolaslien.com/blog/2021/09/01/slug/
+const notFoundHtml = `<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Redirecting…</title>
+<script>window.location.replace(${JSON.stringify(newBase)} + window.location.pathname + window.location.search + window.location.hash)</script>
+</head>
+<body>
+</body>
+</html>
+`;
+
 const files = walkHtml(distDir);
+let count = 0;
 for (const file of files) {
   const rel = relative(distDir, file);
-  const urlPath = rel === 'index.html' ? '/' : '/' + rel.replace(/\/index\.html$/, '/').replace(/\.html$/, '/');
-  writeFileSync(file, redirectHtml(newBase + urlPath));
+  if (rel === '404.html') {
+    writeFileSync(file, notFoundHtml);
+  } else {
+    const urlPath = rel === 'index.html' ? '/' : '/' + rel.replace(/\/index\.html$/, '/').replace(/\.html$/, '/');
+    writeFileSync(file, redirectHtml(newBase + urlPath));
+  }
+  count++;
 }
 console.log(`Replaced ${files.length} HTML files with redirects → ${newBase}`);
