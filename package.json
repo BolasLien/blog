@@ -17,7 +17,7 @@
     "audit:url-diff": "tsx scripts/url-diff.mts",
     "verify:ga4": "tsx scripts/verify-ga4.mts",
     "audit:all": "npm run audit:links && npm run audit:url-diff --",
-    "deploy": "git push origin master:release"
+    "deploy": "git push origin master"
   },
   "dependencies": {
     "@astrojs/rss": "^4.0.18",
