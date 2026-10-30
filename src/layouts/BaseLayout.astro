@@ -40,9 +40,9 @@ const OG_IMAGE = new URL('/img/og_image.png', Astro.site).href;
     {description && <meta name="twitter:description" content={description} />}
     <meta name="twitter:image" content={OG_IMAGE} />
     <slot name="head" />
-    <!-- GA4 with Partytown -->
-    <script type="text/partytown" async src="https://www.googletagmanager.com/gtag/js?id=G-SG50KRG586"></script>
-    <script type="text/partytown" is:inline>
+    <!-- GA4: 直接在主執行緒載入；交給 Partytown 時事件不會送出（BOL-186），由 npm run verify:ga4 檢查 -->
+    <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-SG50KRG586"></script>
+    <script is:inline>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());

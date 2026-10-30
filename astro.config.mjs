@@ -1,7 +1,6 @@
 // @ts-check
 import { defineConfig, fontProviders } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
-import partytown from '@astrojs/partytown';
 import { readdirSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import rehypeSlug from 'rehype-slug';
@@ -95,11 +94,6 @@ export default defineConfig({
         const lastmod = lastmodMap.get(url.pathname);
         if (lastmod) item.lastmod = lastmod;
         return item;
-      },
-    }),
-    partytown({
-      config: {
-        forward: ['dataLayer.push'],
       },
     }),
   ],
