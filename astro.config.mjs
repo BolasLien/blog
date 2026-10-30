@@ -56,7 +56,8 @@ function buildLastmodMap() {
 const lastmodMap = buildLastmodMap();
 
 export default defineConfig({
-  site: 'https://bolaslien.com',
+  site: 'https://bolaslien.github.io',
+  base: '/blog',
   trailingSlash: 'always',
   build: {
     format: 'directory',
